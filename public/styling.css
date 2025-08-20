@@ -11,3 +11,10 @@ body{
 .brisk_bg{
   background-color:red;
 }
+
+.black_bg{
+  background-color:Black;
+}
+.white_bg{
+  background-color:rgb(159, 151, 151);
+}
