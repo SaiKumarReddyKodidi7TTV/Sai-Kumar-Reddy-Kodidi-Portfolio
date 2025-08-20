@@ -6,3 +6,7 @@ body{
 *{
   background-color: transparent;
 }
+
+.blue_bg{
+  backgroung-color:blue;
+}
