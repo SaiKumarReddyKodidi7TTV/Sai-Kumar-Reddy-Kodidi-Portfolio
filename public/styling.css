@@ -2,10 +2,6 @@ body{
   margin:0;
   background-color:bisque;
 }
-  
-*{
-  background-color: transparent;
-}
 
 .blue_bg{
   background-color:blue;
