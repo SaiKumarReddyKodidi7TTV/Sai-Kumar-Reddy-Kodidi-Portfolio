@@ -1,3 +1,8 @@
-html{
-  background:Green;
+body{
+  margin:0;
+  background-color:bisque;
+}
+  
+*{
+  background-color: transparent;
 }
