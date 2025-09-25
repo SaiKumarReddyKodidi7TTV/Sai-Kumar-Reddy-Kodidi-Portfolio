@@ -1,79 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <title>My Resume</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Resume — Sai Kumar</title>
+<link rel="stylesheet" href="./styling.css" />
 </head>
 <body>
-  <img src="../assets/images/SaiKumar.jpg" />
-  <h1>Summary</h1>
-  <p>I am a Java Full Stack Developer with 4+ years of experience in Fintech 
-     and Healthcare specializing in Java 17, SpringBoot , React.js and system design architecture</p>
-  <h1>skills</h1>
-  <h2>Programming Languages:</h2> <p>Java 17, JavaScript (ES6+), TypeScript, SQL, PL/SQL</p>
-  <h2>Frontend Technologies:</h2> <p>React.js 18, Redux Toolkit, Next.js, Tailwind CSS, HTML5, CSS3, Axios, Cypress</p> 
-  <h2>Backend Frameworks:</h2> <p>Spring Boot 3.x, Spring MVC, Spring Security, Hibernate, JPA, Apache Camel, Drools 
-  Rule Engine</p>
-  <h2>API Development:</h2> <p>RESTful APIs, GraphQL (basic exposure), HAPI FHIR, HL7, FIX Protocol, ISO 20022, 
-OAuth 2.0, JWT</p>
-<h2>Messaging & Event-Driven:</h2> <p>Apache Kafka, Kafka Streams, RabbitMQ</p>
-<h1>PROESSIONAL EXPERIENCE:</h1>
-<h2>JPMorgan Chase – TX | July 2024 – Present</h2> 
-<h2><I>Full Stack Developer</I></h2>
-  <p>
- Reduced production defects by 42% by establishing comprehensive BDD test automation frameworks using Cucumber, 
-JUnit, WireMock for service mocking & Cypress for end-to-end UI regression testing across financial workflows.
- Deployed modular microservices using Java 17, Spring Boot 3.x, Hibernate and JPA, seamlessly integrating with 
-PostgreSQL for transactional data and MongoDB for unstructured customer analytics in fintech payment systems.
- Developed high-performance trading dashboards using React.js 18, Redux Toolkit, Next.js and Tailwind CSS, 
-integrating Axios for REST API calls with secure token-based authentication for real-time trade visibility.
- Implemented event-driven architecture with Kafka Streams and RabbitMQ, enabling low-latency processing of FX rate 
-feeds and high-volume equities order book updates with guaranteed message delivery and error handling.
- Containerized microservices using Docker, managed with Helm charts and orchestrated production-grade deployments 
-on AWS EKS, achieving near-zero downtime and 99.99% service availability.
- Automated cloud infrastructure provisioning using Terraform on Azure, incorporating best practices in Infrastructure 
-as Code (IaC), while supporting robust CI/CD pipelines via GitHub Actions and Jenkins for faster releases.
- Maintained PCI DSS compliance by enforcing strict security policies including AES-256 data encryption, HTTPS/TLS 
-transport security, tokenization and centralized audit logging across all critical financial services.
- Versioned schema migrations using Liquibase, integrated with CI/CD to enable traceable changes and safe automated 
-rollbacks during deployment failures, ensuring database consistency across environments.
- Conducted SWOT and risk impact assessments to proactively mitigate fintech-specific challenges related to latency, 
-throughput, security breaches and cross-system reconciliation discrepancies.
- Processed real-time financial messaging systems using FIX protocol and ISO 20022, ensuring accurate trade lifecycle 
-management and compliance in capital markets, including execution, confirmation and settlement flows.
-  </p>
-<h2>Cognizant – India | May 2020 - June 2023</h2>
-<h2><I>Full Stack Developer</I></h2>
-  <p>
- Streamlined claims processing by 40% through designing and implementing optimized EDI 837/835 transaction 
-workflows, leveraging Spring Boot and Apache Camel for seamless integration with payer systems.
- Boosted patient data retrieval efficiency by 35% by integrating Redis caching and fine-tuning JPA queries with 
-Hibernate, ensuring high-performance access to EHR data in PostgreSQL databases.
- Ensured 100% HIPAA compliance by architecting secure data handling mechanisms, including data masking, 
-encryption and role-based access control (RBAC) using Spring Security and OAuth 2.0.
- Developed and deployed RESTful APIs with Spring Boot to enable interoperability between Epic and Cerner EHR
-systems, enhancing clinical data sharing for improved patient care coordination.
- Engineered FHIR-compliant interfaces using HAPI FHIR library to facilitate standardized clinical data exchange, 
-supporting seamless integration with third-party healthcare systems.
- Crafted responsive, user-friendly UI components for claims and patient dashboards using React.js, Redux Toolkit and 
-Tailwind CSS, improving user experience for healthcare professionals.
- Built robust HL7 message parsers to process ADT (Admit, Discharge, Transfer) and ORU (Observation Result) 
-messages, ensuring accurate handling of patient admissions and lab results data.
- Optimized data persistence and retrieval operations using Hibernate and JPA, implementing advanced query 
-optimization techniques in PostgreSQL to support high-volume healthcare applications.
- Designed and implemented e-Prescribing modules adhering to NCPDP SCRIPT standards, enabling secure and 
-efficient medication management workflows integrated with pharmacy systems.
- Developed clinical decision support systems using Drools rule engine to identify and flag high-risk patient conditions, 
-enhancing clinical outcomes through real-time alerts.
- Integrated MongoDB for efficient storage and retrieval of unstructured clinical notes and leveraged Redis for highperformance session management in patient portal applications.
- Enhanced report generation performance by 30% through optimizing SQL queries and creating efficient indexes in
-Oracle 12c, supporting data-driven decision-making for healthcare providers.
-  </p>
-<h1>EDUCATION:</h1>
-  <p>Master of Computer Science - University of North Texas, Denton, Texas, USA
-Bachelor of Electronics and Communication Engineering - Sastra Deemed to be University, Tanjore, Tamil Nadu, India</p>
-
-<h1>CERTIFICATION:</h1>
-<p>Certified AWS (Amazon Web Service) - Amazon
-Certified (Full Stack Web Development) - Udem</p>
+<header class="site-header">
+<a class="brand" href="/">Sai Kumar</a>
+<nav class="nav" id="nav"><a href="/">Home</a></nav>
+</header>
+<main class="section">
+<h2>Resume</h2>
+<p><a class="btn" href="./Resume.pdf" target="_blank" rel="noopener">Open PDF</a></p>
+<p>Optional: embed a web‑friendly copy of your resume here.</p>
+</main>
+<footer class="site-footer"><p>© <span id="y"></span> Sai Kumar Reddy Kodidi</p></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>

@@ -1,36 +1,138 @@
-<!-- TODO 1: Create the HTML Boilerplate -->
- <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sai Kumar Reddy Kodidi</title>
-  <link href="./public/styling.css" rel="stylesheet">
+  <link href="./public/styling.css" rel="stylesheet" />
 </head>
- <body>
-    <div class="blue_bg">
-    <h1 text-align="center">Sai Kumar Reddy Kodidi</h1> 
-    <img src="./assets/images/SaiKumar.jpg" width="120" height="150" class="border rounded" alt="Sai Kumar Reddy" style="margin-right">
-    </div>
-    <div class="black_bg">
-     <h1>Experience</h1>
-    </div>
-    <div class="white_bg">
-     <h1>Education</h1>
-    </div>
-    <div class="black_bg">
-     <h1>Certifications</h1>
-    </div>
-    <div class="white_bg">
-     <h1>Projects</h1>
-    </div>
-    <div class="brisk_bg">
-    <h1>Full Stack Developer</h1>
-    <a href="https://www.linkedin.com/in/sai-kumar-reddy-kodidi-8820391b2?">LinkedIn</a> <br />
-    <a href="./public/contactme.html">Contact me</a> <br />
-    <a href="./public/about.html">About me</a> <br />
-    <a href="./public/Resume.pdf">Resume</a>
-    </div>
- </body>
- </html>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">Sai Kumar</a>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  <nav class="nav" id="nav">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certs">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="btn sm">Contact</a>
+  </nav>
+</header>
 
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="title">Sai Kumar Reddy Kodidi</h1>
+      <p class="subtitle">Data Migration & Cloud • SAP (Syniti ADM, MM/MDG) • Java/Spring • ML & Security</p>
+      <div class="socials">
+   <div class="socials">
+  <!-- GitHub -->
+  <a class="icon" href="https://github.com/SaiKumarReddyKodidi7TTV" target="_blank" rel="noopener" aria-label="GitHub">
+    <img src="./assets/images/Github.png" alt="GitHub" width="28" height="28" />
+  </a>
+  <!-- LinkedIn -->
+  <a class="icon" href="https://www.linkedin.com/in/sai-kumar-reddy-kodidi-8820391b2" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <img src="./assets/images/LinkedIn.png" alt="LinkedIn" width="28" height="28" />
+  </a>
+</div>
+
+
+</div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-frame">
+        <img src="./assets/images/SaiKumar.jpg" alt="Sai Kumar Reddy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      Brief intro focused on outcomes and domains: Syniti ADM data migrations (JDE → S/4HANA),
+      SAP MM/MDG, Java microservices, cloud (AWS/Azure), ML experiments, and security labs.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="cards two">
+      <article class="card">
+        <h3>Syniti ADM Developer</h3>
+        <p>Led JDE → S/4HANA migration: data modeling, BRF+, CVI mapping, reconciliation dashboards.</p>
+      </article>
+      <article class="card">
+        <h3>Java/Spring Microservices</h3>
+        <p>Built REST services, Kafka pipelines, CI/CD with Jenkins, deployed on AWS EKS.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <ul class="chips">
+      <li>Syniti ADM</li><li>SAP MM/MDG</li><li>Java/Spring</li><li>Python</li><li>PyTorch</li>
+      <li>Azure WAF</li><li>AWS</li><li>Kafka</li><li>CI/CD</li><li>Docker</li><li>Kubernetes</li>
+    </ul>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="cards two">
+      <article class="card"><h3>M.S. Computer Science</h3><p>University of North Texas — Expected 2025.</p></article>
+      <article class="card"><h3>B.Tech (Information Tech)</h3><p>Core subjects: DBMS, Networks, OOP, Software Engineering.</p></article>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certs" class="section">
+    <h2>Certifications</h2>
+    <div class="cards two">
+      <article class="card"><h3>AWS Developer Associate</h3></article>
+      <article class="card"><h3>SQL (Basic/Intermediate/Advanced)</h3></article>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="cards three">
+      <article class="card"><h3>Azure WAF Lab</h3></article>
+      <article class="card"><h3>LeNet-5 on CIFAR-10</h3></article>
+      <article class="card"><h3>HealthHub Portal</h3></article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact</h2>
+    <div class="contact-panel">
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/sai-kumar-reddy-kodidi-8820391b2" target="_blank">linkedin.com/in/sai-kumar-reddy-kodidi</a></p>
+      <p>GitHub: <a href="https://github.com/your-handle" target="_blank">github.com/your-handle</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="y"></span> Sai Kumar Reddy Kodidi</p>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const btn = document.querySelector('.menu-btn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>
+</body>
+</html>
