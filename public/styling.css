@@ -207,3 +207,56 @@ a:hover{text-decoration:underline}
 }
 .icon:hover img{ transform: translateY(-1px); }
 .icon:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+
+/* ===== HERO TUNING ===== */
+
+/* Move name/designation up a bit */
+.hero{ padding-top: 28px !important; }            /* was ~56px earlier */
+.title{ margin-top: -6px; }                       /* nudge up */
+.subtitle{ margin-top: 0; }
+
+/* Larger social icons & a bit lower spacing */
+.socials{ margin-top: 18px !important; gap: 14px; }
+.icon{ width: 40px; height: 40px; }               /* was 32px */
+@media (min-width: 1200px){
+  .icon{ width: 44px; height: 44px; }
+}
+
+/* Place photo naturally on the dark wedge */
+.hero-right{ display:flex; justify-content:flex-end; align-items:flex-end; }
+.hero-right{ padding-right: clamp(18px, 4.5vw, 60px); padding-bottom: 4px; }
+
+/* Remove frame/border; size the photo nicely */
+.photo-frame{ border:0; background:transparent; box-shadow:none; }
+.photo-frame img{
+  width: min(420px, 92%);
+  height: auto;              /* keep natural aspect */
+  display:block;
+  border-radius: 12px;       /* subtle soft edge (remove if you want perfectly sharp) */
+}
+
+/* Fake “no background” for JPEGs on dark wedge:
+   Multiplying makes white areas blend into the dark background. */
+.photo-frame.fake-cutout img{
+  mix-blend-mode: multiply;
+  filter: contrast(1.06) saturate(1.02);
+}
+
+/* When you have a real transparent PNG, use .cutout (no blend) */
+.photo-frame.cutout img{
+  mix-blend-mode: normal;
+  filter: none;
+}
+
+/* Keep the wedge from stealing clicks, keep hero content above it */
+.hero::before{ pointer-events:none !important; z-index:0 !important; }
+.hero-left{ position:relative; z-index:2; }
+.socials{ position:relative; z-index:3; }
+
+/* Optional: tighten hero on mobile */
+@media (max-width: 980px){
+  .hero{ padding-top: 22px !important; }
+  .icon{ width: 36px; height: 36px; }
+  .photo-frame img{ width: min(360px, 96%); }
+}
