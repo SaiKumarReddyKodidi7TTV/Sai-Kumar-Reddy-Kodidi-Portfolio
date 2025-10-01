@@ -164,3 +164,49 @@ a:hover{text-decoration:underline}
   }
   .nav.open{display:flex}
 }
+
+/* ===== SKILLS (logo tiles) ===== */
+.skills .skill-logos{
+  --tile: 96px;                          /* size of each tile */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--tile), 1fr));
+  gap: 16px;
+  margin-top: 8px;
+  padding: 4px 0;
+}
+.skill-logos li{
+  list-style: none;
+  background: #fff;
+  border: 1px solid #c5dfdb;
+  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(14,58,91,.08);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.skill-logos li:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(14,58,91,.14);
+  border-color: #a9d3cd;
+}
+.skill-logos img{
+  max-width: 72%;
+  max-height: 72%;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(100%) contrast(.95);
+  transition: filter .18s ease, transform .18s ease;
+  image-rendering: -webkit-optimize-contrast;
+}
+.skill-logos li:hover img{
+  filter: none;                           /* color on hover */
+  transform: scale(1.04);
+}
+
+/* smaller tiles on narrow screens */
+@media (max-width: 520px){
+  .skills .skill-logos{ --tile: 78px; gap: 12px; }
+}
