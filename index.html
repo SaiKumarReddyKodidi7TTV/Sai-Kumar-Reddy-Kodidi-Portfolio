@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sai Kumar Reddy Kodidi</title>
-  <link href="public/styling.css?v=10" rel="stylesheet" />
+  <!-- bump the version if you don’t see changes -->
+  <link href="public/styling.css?v=12" rel="stylesheet" />
 </head>
 <body>
 <header class="site-header">
@@ -108,27 +109,27 @@
     </div>
   </section>
 
-  <!-- SKILLS (logo grid – using your /skills/ folder) -->
+  <!-- SKILLS (logo grid – using assets/skills/) -->
   <section id="skills" class="section skills">
     <h2>Skills</h2>
 
     <ul class="skill-logos">
-      <li><img src="./skills/java.svg" alt="Java" title="Java" /></li>
-      <li><img src="./skills/spring-boot.svg" alt="Spring Boot" title="Spring Boot" /></li>
-      <li><img src="./skills/react.svg" alt="React" title="React" /></li>
-      <li><img src="./skills/nextjs.svg" alt="Next.js" title="Next.js" /></li>
-      <li><img src="./skills/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" /></li>
-      <li><img src="./skills/mongodb.svg" alt="MongoDB" title="MongoDB" /></li>
-      <li><img src="./skills/docker.svg" alt="Docker" title="Docker" /></li>
-      <li><img src="./skills/kubernetes.svg" alt="Kubernetes" title="Kubernetes" /></li>
-      <li><img src="./skills/aws.svg" alt="AWS" title="AWS" /></li>
-      <li><img src="./skills/terraform.svg" alt="Terraform" title="Terraform" /></li>
-      <li><img src="./skills/kafka.svg" alt="Kafka" title="Kafka" /></li>
-      <li><img src="./skills/rabbitmq.svg" alt="RabbitMQ" title="RabbitMQ" /></li>
-      <li><img src="./skills/redis.svg" alt="Redis" title="Redis" /></li>
-      <li><img src="./skills/cypress.svg" alt="Cypress" title="Cypress" /></li>
-      <li><img src="./skills/junit.svg" alt="JUnit" title="JUnit" /></li>
-      <li><img src="./skills/apache-camel.svg" alt="Apache Camel" title="Apache Camel" /></li>
+      <li><img src="assets/skills/java.svg?v=12" alt="Java" title="Java" /></li>
+      <li><img src="assets/skills/spring-boot.svg?v=12" alt="Spring Boot" title="Spring Boot" /></li>
+      <li><img src="assets/skills/react.svg?v=12" alt="React" title="React" /></li>
+      <li><img src="assets/skills/nextjs.svg?v=12" alt="Next.js" title="Next.js" /></li>
+      <li><img src="assets/skills/postgresql.svg?v=12" alt="PostgreSQL" title="PostgreSQL" /></li>
+      <li><img src="assets/skills/mongodb.svg?v=12" alt="MongoDB" title="MongoDB" /></li>
+      <li><img src="assets/skills/docker.svg?v=12" alt="Docker" title="Docker" /></li>
+      <li><img src="assets/skills/kubernetes.svg?v=12" alt="Kubernetes" title="Kubernetes" /></li>
+      <li><img src="assets/skills/aws.svg?v=12" alt="AWS" title="AWS" /></li>
+      <li><img src="assets/skills/terraform.svg?v=12" alt="Terraform" title="Terraform" /></li>
+      <li><img src="assets/skills/kafka.svg?v=12" alt="Kafka" title="Kafka" /></li>
+      <li><img src="assets/skills/rabbitmq.svg?v=12" alt="RabbitMQ" title="RabbitMQ" /></li>
+      <li><img src="assets/skills/redis.svg?v=12" alt="Redis" title="Redis" /></li>
+      <li><img src="assets/skills/cypress.svg?v=12" alt="Cypress" title="Cypress" /></li>
+      <li><img src="assets/skills/junit.svg?v=12" alt="JUnit" title="JUnit" /></li>
+      <li><img src="assets/skills/apache-camel.svg?v=12" alt="Apache Camel" title="Apache Camel" /></li>
     </ul>
   </section>
 
@@ -176,10 +177,8 @@
 </footer>
 
 <script>
-  // Year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Mobile nav
   const btn = document.querySelector('.menu-btn');
   const nav = document.getElementById('nav');
   btn.addEventListener('click', () => {
