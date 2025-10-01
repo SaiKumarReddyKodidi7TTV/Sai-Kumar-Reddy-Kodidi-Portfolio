@@ -116,11 +116,12 @@ a:hover{text-decoration:underline}
   .nav.open{display:flex}
 }
 
-/* ===== EXPERIENCE (dark twin cards) ===== */
+/* ===== EXPERIENCE (dark, boxed, two variants) ===== */
 .xp { margin-top: 32px; }
 .xp-grid {
-  display: grid; gap: 22px;
-  grid-template-columns: 1fr;           /* 1-col mobile, becomes 2-col on wide if you want */
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr;
 }
 @media (min-width: 1024px){
   .xp-grid { grid-template-columns: 1fr 1fr; }
@@ -128,41 +129,60 @@ a:hover{text-decoration:underline}
 
 /* shared card look */
 .xp-card{
-  --bg1: #0E3A5B;
-  --bg2: #0A2D48;
-  background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
-  color: #E9F7F6;
-  border: 1px solid rgba(255,255,255,.12);
+  --bg1: #0E3A5B;   /* default gradient start */
+  --bg2: #0A2D48;   /* default gradient end */
+  background:
+    radial-gradient(1200px 500px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+  color: #EAF7F6;
+  border: 1px solid rgba(255,255,255,.14);
   border-radius: 18px;
-  padding: 18px 18px 16px;
+  padding: 20px 18px 16px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 14px 30px rgba(0,0,0,.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.xp-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(0,0,0,.26);
 }
 .xp-card::after{
-  /* subtle angled sheen */
-  content:""; position:absolute; inset:-8% -40% auto auto; height:60%;
+  /* subtle diagonal sheen */
+  content:"";
+  position:absolute; right:-40%; top:-25%;
+  width:70%; height:70%;
   transform: skewX(-24deg);
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
   pointer-events:none;
 }
 
-.xp--one{ --bg1:#0E3A5B; --bg2:#0B2E47; }  /* JPMorgan variant */
-.xp--two{ --bg1:#123D5F; --bg2:#0A2E45; }  /* Cognizant variant */
+/* two dark variants */
+.xp--one{ --bg1:#0E3A5B; --bg2:#09273C; }  /* deep blue-teal */
+.xp--two{ --bg1:#123D5F; --bg2:#08293B; }  /* darker slate-teal */
 
+/* header/meta */
 .xp-head h3{ margin:0; font-size:22px; color:#fff; }
-.xp-head .meta{ margin:6px 0 10px; opacity:.85; font-size:14px; }
+.xp-head .meta{ margin:6px 0 12px; opacity:.86; font-size:14px; }
 
-.impact{ margin: 0 0 12px 18px; }
-.impact li{ margin:6px 0; line-height:1.45; }
+/* bullets */
+.impact{ margin: 0 0 12px 0; padding: 0; list-style:none; }
+.impact li{
+  position:relative; padding-left:22px; margin:8px 0; line-height:1.45;
+}
+.impact li::before{
+  content:""; position:absolute; left:0; top:10px;
+  width:8px; height:8px; border-radius:50%;
+  background: var(--accent, #2BA6B3);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.1);
+}
 
-.badges{ display:flex; flex-wrap:wrap; gap:8px; }
+/* tech badges */
+.badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
 .badge{
-  font-size:12px; font-weight:600; letter-spacing:.2px;
+  font-size:12px; font-weight:650; letter-spacing:.2px;
   padding:6px 10px; border-radius:999px;
   background: rgba(255,255,255,.08);
   color:#EAFBFF; border:1px solid rgba(255,255,255,.16);
+  white-space:nowrap;
 }
-
-/* If your global card hover lifts light cards, do a darker hover here */
-.xp-card:hover{ box-shadow: 0 18px 42px rgba(0,0,0,.26); transform: translateY(-2px); }
