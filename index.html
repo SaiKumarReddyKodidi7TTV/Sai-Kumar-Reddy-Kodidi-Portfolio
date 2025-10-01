@@ -6,94 +6,74 @@
   <title>Sai Kumar Reddy Kodidi</title>
 
   <!-- main stylesheet -->
-  <link href="public/styling.css?v=3" rel="stylesheet" />
+  <link href="public/styling.css?v=4" rel="stylesheet" />
 
-  <!-- strict wedge + precise positioning overrides -->
+  <!-- strict wedge + hero placement + photo cut edge -->
   <style>
     :root{
       --silent-sea:#0E3A5B;
       --felicity:#CFE8E5;
       --accent:#2BA6B3;
+      --cut:16%;                 /* tweak this to adjust the photo’s slanted cut */
     }
 
-    /* Keep content centered */
+    /* Center content */
     .site-header,.section,.hero{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* HERO: strict slanted partition */
+    /* HERO fills the first screen so About isn’t on the homepage */
     .hero{
       position:relative;
-      min-height: 86vh;         /* gives us room to place things at % positions */
+      min-height:100vh;          /* <- pushes About below the fold */
       display:grid;
       grid-template-columns: 1.05fr .95fr;
       align-items:stretch;
       overflow:hidden;
       background: var(--felicity);
-      padding-top: 0;           /* we’ll place content by absolute % */
     }
-    /* Dark side wedge: solid color, sharp edge, no gradients */
+    /* Strict dark wedge with crisp edge */
     .hero::after{
-      content:"";
-      position:absolute; inset:0 auto 0 50%;
-      width:60%;
-      background: var(--silent-sea);
-      transform: skewX(-12deg);
-      transform-origin: left top;
-      z-index:0;
-      pointer-events:none;
-      box-shadow:none;          /* ensures the edge is crisp */
+      content:""; position:absolute; inset:0 auto 0 50%;
+      width:60%; background:var(--silent-sea);
+      transform:skewX(-12deg); transform-origin:left top;
+      z-index:0; pointer-events:none; box-shadow:none;
     }
 
-    /* Left column container (anchor for absolute placement) */
+    /* Title/Subtitle ~40% from top */
     .hero-left{position:relative; z-index:2;}
-    /* Title+subtitle block placed ~40% from the top */
-    .hero-copy{
-      position:absolute; left:0; right:6%;
-      top:40%;
-      transform: translateY(-40%);
-    }
+    .hero-copy{position:absolute; left:0; right:6%; top:40%; transform:translateY(-40%);}
+    .title{margin:0 0 8px;}
+    .subtitle{margin:0; opacity:.95;}
 
-    /* Social icons block pinned ~20% from bottom of hero (left side) */
-    .socials{
-      position:absolute; left:0; bottom:20%;
-      display:flex; gap:14px;
-    }
+    /* Social icons ~20% from bottom, bigger & clickable */
+    .socials{position:absolute; left:0; bottom:20%; display:flex; gap:14px;}
+    .icon{width:44px; height:44px; display:inline-block; line-height:0; cursor:pointer;}
+    .icon svg{width:100%; height:100%; fill:var(--silent-sea); transition:fill .15s, transform .12s;}
+    .icon:hover svg{fill:var(--accent); transform:translateY(-1px);}
+    .icon:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px;}
 
-    /* Icons (inline SVG) — larger & crisp */
-    .icon{ width:44px; height:44px; display:inline-block; line-height:0; }
-    .icon svg{ width:100%; height:100%; fill:var(--silent-sea); transition:fill .15s, transform .12s; }
-    .icon:hover svg{ fill:var(--accent); transform: translateY(-1px); }
-    .icon:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:6px; }
-
-    /* Buttons under the copy */
-    .cta{ margin-top:14px; display:flex; gap:12px; }
-
-    /* Right column: photo sits naturally on the dark side */
+    /* Photo on dark side (no card), hard slanted cut on left edge */
     .hero-right{position:relative; z-index:2; display:flex; justify-content:flex-end; align-items:center;}
-    .photo-frame{border:0; background:transparent; box-shadow:none; padding-right: clamp(18px, 4.5vw, 60px);}
+    .photo-frame{border:0; background:transparent; box-shadow:none; padding-right:clamp(18px, 4.5vw, 60px);}
     .photo-frame img{
       width:min(460px, 92%);
-      height:auto;
-      display:block;
-      border-radius:12px;  /* remove if you want sharp edges */
-      mix-blend-mode: multiply; /* helps white bg blend on dark side for JPEGs */
-      filter: contrast(1.06) saturate(1.02);
+      height:auto; display:block;
+      /* Slanted crop to match wedge; increase/decrease --cut to align visually */
+      clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0% 100%);
+      /* Blend trick to neutralize any remaining white halo from a JPG */
+      mix-blend-mode:multiply;
+      filter: contrast(1.05) saturate(1.02);
+      border-radius:12px; /* remove if you want perfectly sharp corners */
     }
 
     /* Mobile adjustments */
     @media (max-width:980px){
-      .hero{grid-template-columns:1fr; min-height:78vh;}
-      .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform: none;}
-      .hero-right{justify-content:center; align-items:flex-end;}
-      .hero-copy{left:0; right:0; top:34%; transform:translateY(-34%);}
-      .socials{left:0; right:auto; bottom:16%;}
-      .icon{ width:38px; height:38px; }
+      .hero{grid-template-columns:1fr; min-height:92vh;}
+      .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform:none;}
+      .hero-copy{left:0; right:0; top:36%; transform:translateY(-36%);}
+      .socials{bottom:16%;}
+      .icon{width:38px; height:38px;}
       .photo-frame{padding-right:0;}
-      .photo-frame img{ width:min(380px, 92%); }
-    }
-    @media (max-width:680px){
-      .hero{min-height:72vh;}
-      .hero::after{height:50%;}
-      .icon{ width:34px; height:34px; }
+      .photo-frame img{width:min(380px,96%); clip-path:none;} /* avoid weird crop when stacked */
     }
   </style>
 </head>
@@ -116,40 +96,32 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <!-- Title & subtitle ~40% from top -->
+      <!-- Title & subtitle -->
       <div class="hero-copy">
         <h1 class="title">Sai Kumar Reddy Kodidi</h1>
         <p class="subtitle">Data Migration & Cloud • SAP (Syniti ADM, MM/MDG) • Java/Spring • ML & Security</p>
-
-        <div class="cta">
-          <a class="btn" href="public/Resume.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a class="btn outline" href="public/contactme.html">Contact Me</a>
-        </div>
       </div>
 
-      <!-- Socials ~20% from bottom -->
+      <!-- Socials -->
       <div class="socials">
-        <!-- GitHub -->
         <a class="icon" href="https://github.com/SaiKumarReddyKodidi7TTV" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A12 12 0 0 0 0 12.7c0 5.4 3.4 9.9 8.1 11.5.6.1.8-.3.8-.6v-2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.3 1.8 1.3 1 .1 1-.7 2.6-1 .1-.8.4-1.4.8-1.8-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.2 1.2a10.8 10.8 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 24 12.7 12 12 0 0 0 12 .5z"/></svg>
         </a>
-        <!-- LinkedIn -->
         <a class="icon" href="https://www.linkedin.com/in/sai-kumar-reddy-kodidi-8820391b2" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.86-3.04-1.87 0-2.16 1.46-2.16 2.96v5.66H9.3V9h3.41v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.57 0 4.23 2.35 4.23 5.41v6.3zM5.34 7.44A2.07 2.07 0 1 1 5.33 3.3a2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.57V9h3.55v11.45z"/></svg>
         </a>
       </div>
     </div>
 
-    <!-- Photo on the dark side -->
+    <!-- Photo on the dark side with cutting edge -->
     <div class="hero-right">
       <div class="photo-frame">
-        <!-- JPEG with blend; replace with transparent PNG later if you want true cutout -->
         <img src="./assets/images/SaiKumar.jpg" alt="Sai Kumar Reddy" width="900" height="900" />
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT (now below the fold) -->
   <section id="about" class="section">
     <h2>About Me</h2>
     <p>
