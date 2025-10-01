@@ -55,9 +55,8 @@ a:hover{text-decoration:underline}
 
 /* Socials (~20% from bottom) */
 .socials{position:absolute; left:0; bottom:20%; display:flex; gap:14px;}
-.icon{width:44px; height:44px; display:inline-block; line-height:0; cursor:pointer;}
-.icon svg{width:100%; height:100%; fill:var(--silent-sea); transition:fill .15s, transform .12s;}
-.icon:hover svg{fill:var(--accent); transform:translateY(-1px);}
+.icon{width:44px; height:44px; display:inline-block; line-height:0; cursor:pointer; color:var(--silent-sea)}
+.icon:hover{color:var(--accent);}
 .icon:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px;}
 
 /* Photo on dark side with slanted cut */
@@ -159,13 +158,16 @@ a:hover{text-decoration:underline}
   box-shadow: 0 10px 24px rgba(14,58,91,.14);
   border-color: #a9d3cd;
 }
-.skill-logos img{
+/* both <img> and inline <svg> scale nicely */
+.skill-logos img,
+.skill-logos svg{
   max-width: 72%; max-height: 72%;
-  object-fit: contain; display: block;
+  display: block;
   filter: grayscale(100%) contrast(.95);
   transition: filter .18s ease, transform .18s ease;
 }
-.skill-logos li:hover img{ filter: none; transform: scale(1.04); }
+.skill-logos li:hover img,
+.skill-logos li:hover svg{ filter: none; transform: scale(1.04); }
 
 @media (max-width:980px){
   .hero{grid-template-columns:1fr; min-height:92vh;}
