@@ -57,19 +57,59 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <div class="cards two">
-      <article class="card">
-        <h3>Syniti ADM Developer</h3>
-        <p>Led JDE → S/4HANA migration: data modeling, BRF+, CVI mapping, reconciliation dashboards.</p>
-      </article>
-      <article class="card">
-        <h3>Java/Spring Microservices</h3>
-        <p>Built REST services, Kafka pipelines, CI/CD with Jenkins, deployed on AWS EKS.</p>
-      </article>
-    </div>
-  </section>
+  <!-- EXPERIENCE -->
+<section id="experience" class="section xp">
+  <h2>Experience</h2>
+
+  <div class="xp-grid">
+    <!-- 1) JPMorgan Chase -->
+    <article class="xp-card xp--one">
+      <header class="xp-head">
+        <h3><span class="role">Full-Stack Developer</span> • <span class="company">JPMorgan Chase</span></h3>
+        <p class="meta">Texas, USA · Jul 2024 – Present</p>
+      </header>
+
+      <ul class="impact">
+        <li>Cut production defects by <strong>42%</strong> via a BDD automation stack (Cucumber, JUnit, WireMock, Cypress).</li>
+        <li>Shipped modular microservices (Java 17, Spring Boot 3, Hibernate/JPA) with PostgreSQL + MongoDB.</li>
+        <li>Built high-perf trading dashboards (React 18, Redux Toolkit, Next.js; token-based auth) for real-time visibility.</li>
+        <li>Implemented event-driven pipelines with <strong>Kafka Streams</strong> & <strong>RabbitMQ</strong> for FX and order-book flows.</li>
+        <li>Containerized with Docker/Helm on <strong>AWS EKS</strong> → near-zero downtime, ~99.99% availability.</li>
+        <li>Hardened security & compliance (PCI DSS, AES-256, HTTPS/TLS, tokenization, centralized audit logging).</li>
+      </ul>
+
+      <div class="badges">
+        <span class="badge">Java 17</span><span class="badge">Spring Boot 3</span>
+        <span class="badge">Kafka</span><span class="badge">RabbitMQ</span>
+        <span class="badge">React 18</span><span class="badge">AWS EKS</span><span class="badge">Terraform</span>
+      </div>
+    </article>
+
+    <!-- 2) Cognizant -->
+    <article class="xp-card xp--two">
+      <header class="xp-head">
+        <h3><span class="role">Full-Stack Developer</span> • <span class="company">Cognizant</span></h3>
+        <p class="meta">India · May 2020 – Jun 2023</p>
+      </header>
+
+      <ul class="impact">
+        <li>Streamlined claims processing by <strong>40%</strong> using optimized <strong>EDI 837/835</strong> flows (Spring Boot, Apache Camel).</li>
+        <li>Improved patient data retrieval by <strong>35%</strong> via Redis caching + JPA query tuning.</li>
+        <li>Delivered HIPAA-compliant services (encryption, masking, RBAC, OAuth 2.0/Spring Security).</li>
+        <li>Enabled Epic/Cerner interoperability with REST APIs & <strong>HAPI FHIR</strong>.</li>
+        <li>Built responsive dashboards (React, Redux Toolkit, Tailwind) for clinicians and ops users.</li>
+        <li>Boosted report generation by <strong>30%</strong> through SQL/index optimization on Oracle 12c.</li>
+      </ul>
+
+      <div class="badges">
+        <span class="badge">Spring Boot</span><span class="badge">Apache Camel</span>
+        <span class="badge">FHIR</span><span class="badge">HL7</span>
+        <span class="badge">React</span><span class="badge">PostgreSQL</span><span class="badge">Redis</span>
+      </div>
+    </article>
+  </div>
+</section>
+
 
   <!-- SKILLS -->
   <section id="skills" class="section">
