@@ -36,7 +36,7 @@ a:hover{text-decoration:underline}
 /* Containers */
 .site-header,.section,.hero{max-width:1120px;margin:0 auto;padding-left:20px;padding-right:20px}
 
-/* HERO (strict partition) */
+/* HERO */
 .hero{
   position:relative; min-height:100vh;
   display:grid; grid-template-columns:1.05fr .95fr; align-items:stretch;
@@ -53,42 +53,37 @@ a:hover{text-decoration:underline}
 .title{margin:0 0 8px; font-size:clamp(32px,5.2vw,56px); color:var(--silent-sea)}
 .subtitle{margin:0; color:#1a3f56; opacity:.95}
 
-/* Social icons (~20% from bottom) */
+/* Socials (~20% from bottom) */
 .socials{position:absolute; left:0; bottom:20%; display:flex; gap:14px;}
 .icon{width:44px; height:44px; display:inline-block; line-height:0; cursor:pointer;}
 .icon svg{width:100%; height:100%; fill:var(--silent-sea); transition:fill .15s, transform .12s;}
 .icon:hover svg{fill:var(--accent); transform:translateY(-1px);}
 .icon:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px;}
 
-/* Photo on the dark side with slanted cut edge */
+/* Photo on dark side with slanted cut */
 .hero-right{position:relative; z-index:2; display:flex; justify-content:flex-end; align-items:center;}
 .photo-frame{border:0; background:transparent; box-shadow:none; padding-right:clamp(18px, 4.5vw, 60px);}
 .photo-frame img{
   width:min(460px,92%); height:auto; display:block; border-radius:12px;
-  /* slanted crop */
   clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0% 100%);
-  /* blend trick for JPG halos */
   mix-blend-mode:multiply; filter:contrast(1.05) saturate(1.02);
 }
 
 /* Sections */
 .section{max-width:1120px;margin:40px auto;padding:0 20px}
 .section h2{color:var(--silent-sea);font-size:28px;margin:0 0 10px}
-.section p{margin:0}
 
 /* About full width text */
 #about p, #about li, #about div, #about > *{max-width:none !important}
 #about p{line-height:1.6}
 
-/* Generic cards/chips (used by other sections) */
+/* Generic cards/chips */
 .cards{display:grid;gap:18px}
 .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .card{background:var(--paper);border:1px solid #c5dfdb;border-radius:16px;padding:16px;transition:transform .18s, box-shadow .18s, border-color .18s}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(14,58,91,.12);border-color:#a9d3cd}
 .card h3{margin:0 0 8px;color:var(--silent-sea)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:8px 0 0;list-style:none}
-.chips li{background:#fff;border:1px solid #b7d5d1;padding:8px 12px;border-radius:999px}
 
 /* ===== EXPERIENCE (dark, boxed, two variants) ===== */
 .xp { margin-top: 32px; }
@@ -139,14 +134,39 @@ a:hover{text-decoration:underline}
   white-space:nowrap;
 }
 
-/* Contact */
-.contact .contact-panel{background:var(--silent-sea);color:#e9f8f6;border-radius:18px;padding:20px;border:1px solid #0a2d48}
-.contact .contact-panel a{color:#a7f0ff}
+/* ===== SKILLS (logo tiles) ===== */
+.skills .skill-logos{
+  --tile: 96px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--tile), 1fr));
+  gap: 16px;
+  margin-top: 8px;
+  list-style: none;
+  padding-left: 0;
+}
+.skill-logos li{
+  background: #fff;
+  border: 1px solid #c5dfdb;
+  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(14,58,91,.08);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.skill-logos li:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(14,58,91,.14);
+  border-color: #a9d3cd;
+}
+.skill-logos img{
+  max-width: 72%; max-height: 72%;
+  object-fit: contain; display: block;
+  filter: grayscale(100%) contrast(.95);
+  transition: filter .18s ease, transform .18s ease;
+}
+.skill-logos li:hover img{ filter: none; transform: scale(1.04); }
 
-/* Footer */
-.site-footer{padding:24px 20px;text-align:center;color:#17425a}
-
-/* Responsive nav & hero */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr; min-height:92vh;}
   .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform:none;}
@@ -163,50 +183,4 @@ a:hover{text-decoration:underline}
     padding:10px 12px;flex-direction:column;gap:6px;display:none
   }
   .nav.open{display:flex}
-}
-
-/* ===== SKILLS (logo tiles) ===== */
-.skills .skill-logos{
-  --tile: 96px;                          /* size of each tile */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--tile), 1fr));
-  gap: 16px;
-  margin-top: 8px;
-  padding: 4px 0;
-}
-.skill-logos li{
-  list-style: none;
-  background: #fff;
-  border: 1px solid #c5dfdb;
-  border-radius: 16px;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-  box-shadow: 0 6px 16px rgba(14,58,91,.08);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.skill-logos li:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(14,58,91,.14);
-  border-color: #a9d3cd;
-}
-.skill-logos img{
-  max-width: 72%;
-  max-height: 72%;
-  object-fit: contain;
-  display: block;
-  filter: grayscale(100%) contrast(.95);
-  transition: filter .18s ease, transform .18s ease;
-  image-rendering: -webkit-optimize-contrast;
-}
-.skill-logos li:hover img{
-  filter: none;                           /* color on hover */
-  transform: scale(1.04);
-}
-
-/* smaller tiles on narrow screens */
-@media (max-width: 520px){
-  .skills .skill-logos{ --tile: 78px; gap: 12px; }
 }

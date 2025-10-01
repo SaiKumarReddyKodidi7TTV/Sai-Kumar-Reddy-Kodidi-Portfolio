@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sai Kumar Reddy Kodidi</title>
-  <link href="public/styling.css?v=7" rel="stylesheet" />
+  <link href="public/styling.css?v=10" rel="stylesheet" />
 </head>
 <body>
 <header class="site-header">
@@ -22,7 +22,7 @@
 </header>
 
 <main>
-  <!-- HERO (strict partition) -->
+  <!-- HERO (strict split, name ~40%, icons ~20%) -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-copy">
@@ -30,7 +30,6 @@
         <p class="subtitle">Data Migration & Cloud • SAP (Syniti ADM, MM/MDG) • Java/Spring • ML & Security</p>
       </div>
 
-      <!-- Social icons (~20% from bottom) -->
       <div class="socials">
         <a class="icon" href="https://github.com/SaiKumarReddyKodidi7TTV" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A12 12 0 0 0 0 12.7c0 5.4 3.4 9.9 8.1 11.5.6.1.8-.3.8-.6v-2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.3 1.8 1.3 1 .1 1-.7 2.6-1 .1-.8.4-1.4.8-1.8-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.2 1.2a10.8 10.8 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 24 12.7 12 12 0 0 0 12 .5z"/></svg>
@@ -41,7 +40,6 @@
       </div>
     </div>
 
-    <!-- Photo on dark side with slanted cut -->
     <div class="hero-right">
       <div class="photo-frame img-clip">
         <img src="./assets/images/SaiKumar.jpg" alt="Sai Kumar Reddy" width="900" height="900" />
@@ -71,7 +69,7 @@
           <li>Cut production defects by <strong>42%</strong> via a BDD automation stack (Cucumber, JUnit, WireMock, Cypress).</li>
           <li>Shipped modular microservices (Java 17, Spring Boot 3, Hibernate/JPA) with PostgreSQL & MongoDB.</li>
           <li>Built real-time trading dashboards (React 18, Redux Toolkit, Next.js; token-based auth).</li>
-          <li>Implemented event-driven pipelines with <strong>Kafka Streams</strong> & <strong>RabbitMQ</strong> for FX/order-book flows.</li>
+          <li>Implemented event-driven pipelines with <strong>Kafka Streams</strong> & <strong>RabbitMQ</strong>.</li>
           <li>Containerized with Docker/Helm on <strong>AWS EKS</strong> → near-zero downtime, ~99.99% availability.</li>
           <li>Hardened security & compliance (PCI DSS, AES-256, HTTPS/TLS, tokenization, centralized audit logging).</li>
         </ul>
@@ -110,41 +108,29 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <!-- SKILLS (logos only) -->
-<section id="skills" class="section skills">
-  <h2>Skills</h2>
+  <!-- SKILLS (logo grid – using your /skills/ folder) -->
+  <section id="skills" class="section skills">
+    <h2>Skills</h2>
 
-  <ul class="skill-logos">
-    <!-- Backend / Core -->
-    <li><img src="./assets/skills/java.svg" alt="Java" title="Java" /></li>
-    <li><img src="./assets/skills/spring-boot.svg" alt="Spring Boot" title="Spring Boot" /></li>
-
-    <!-- Frontend -->
-    <li><img src="./assets/skills/react.svg" alt="React" title="React" /></li>
-    <li><img src="./assets/skills/nextjs.svg" alt="Next.js" title="Next.js" /></li>
-
-    <!-- Databases -->
-    <li><img src="./assets/skills/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" /></li>
-    <li><img src="./assets/skills/mongodb.svg" alt="MongoDB" title="MongoDB" /></li>
-
-    <!-- Cloud / Containers -->
-    <li><img src="./assets/skills/docker.svg" alt="Docker" title="Docker" /></li>
-    <li><img src="./assets/skills/kubernetes.svg" alt="Kubernetes" title="Kubernetes" /></li>
-    <li><img src="./assets/skills/aws.svg" alt="AWS" title="AWS" /></li>
-    <li><img src="./assets/skills/terraform.svg" alt="Terraform" title="Terraform" /></li>
-
-    <!-- Messaging / Caching -->
-    <li><img src="./assets/skills/kafka.svg" alt="Kafka" title="Kafka" /></li>
-    <li><img src="./assets/skills/rabbitmq.svg" alt="RabbitMQ" title="RabbitMQ" /></li>
-    <li><img src="./assets/skills/redis.svg" alt="Redis" title="Redis" /></li>
-
-    <!-- Testing / Integration -->
-    <li><img src="./assets/skills/cypress.svg" alt="Cypress" title="Cypress" /></li>
-    <li><img src="./assets/skills/junit.svg" alt="JUnit" title="JUnit" /></li>
-    <li><img src="./assets/skills/apache-camel.svg" alt="Apache Camel" title="Apache Camel" /></li>
-  </ul>
-</section>
+    <ul class="skill-logos">
+      <li><img src="./skills/java.svg" alt="Java" title="Java" /></li>
+      <li><img src="./skills/spring-boot.svg" alt="Spring Boot" title="Spring Boot" /></li>
+      <li><img src="./skills/react.svg" alt="React" title="React" /></li>
+      <li><img src="./skills/nextjs.svg" alt="Next.js" title="Next.js" /></li>
+      <li><img src="./skills/postgresql.svg" alt="PostgreSQL" title="PostgreSQL" /></li>
+      <li><img src="./skills/mongodb.svg" alt="MongoDB" title="MongoDB" /></li>
+      <li><img src="./skills/docker.svg" alt="Docker" title="Docker" /></li>
+      <li><img src="./skills/kubernetes.svg" alt="Kubernetes" title="Kubernetes" /></li>
+      <li><img src="./skills/aws.svg" alt="AWS" title="AWS" /></li>
+      <li><img src="./skills/terraform.svg" alt="Terraform" title="Terraform" /></li>
+      <li><img src="./skills/kafka.svg" alt="Kafka" title="Kafka" /></li>
+      <li><img src="./skills/rabbitmq.svg" alt="RabbitMQ" title="RabbitMQ" /></li>
+      <li><img src="./skills/redis.svg" alt="Redis" title="Redis" /></li>
+      <li><img src="./skills/cypress.svg" alt="Cypress" title="Cypress" /></li>
+      <li><img src="./skills/junit.svg" alt="JUnit" title="JUnit" /></li>
+      <li><img src="./skills/apache-camel.svg" alt="Apache Camel" title="Apache Camel" /></li>
+    </ul>
+  </section>
 
   <!-- EDUCATION -->
   <section id="education" class="section">
@@ -190,10 +176,10 @@
 </footer>
 
 <script>
-  // year
+  // Year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // mobile nav
+  // Mobile nav
   const btn = document.querySelector('.menu-btn');
   const nav = document.getElementById('nav');
   btn.addEventListener('click', () => {
