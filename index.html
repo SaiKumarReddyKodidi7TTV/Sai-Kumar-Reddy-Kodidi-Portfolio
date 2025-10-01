@@ -123,24 +123,13 @@
 
   <!-- ABOUT (now below the fold) -->
   <section id="about" class="section">
-  <!-- content from about.html will go here -->
-</section>
+    <h2>About Me</h2>
+    <p>
+      Brief intro focused on outcomes and domains: Syniti ADM data migrations (JDE → S/4HANA),
+      SAP MM/MDG, Java microservices, cloud (AWS/Azure), ML experiments, and security labs.
+    </p>
+  </section>
 
-<script>
-  // wait until DOM is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    // adjust path if needed (here about.html sits next to index.html)
-    fetch('about.html')
-      .then(function(res) { return res.text(); })
-      .then(function(html) {
-        // inject the fetched markup into your #about section
-        document.getElementById('about').innerHTML = html;
-      })
-      .catch(function(err) {
-        console.error('Could not load about.html:', err);
-      });
-  });
-</script>
   <!-- EXPERIENCE -->
   <section id="experience" class="section">
     <h2>Experience</h2>
