@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sai Kumar Reddy Kodidi</title>
-  <link href="public/styling.css?v=14" rel="stylesheet" />
+  <link href="public/styling.css?v=15" rel="stylesheet" />
 </head>
 <body>
 <header class="site-header">
@@ -104,6 +104,7 @@
   <section id="skills" class="section skills">
     <h2>Skills</h2>
     <ul class="skill-logos bare">
+      <!-- (inline SVGs; same as before) -->
       <!-- Java -->
       <li aria-label="Java">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -117,7 +118,6 @@
           </g>
         </svg>
       </li>
-
       <!-- Spring Boot -->
       <li aria-label="Spring Boot">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -126,7 +126,6 @@
           <circle cx="50" cy="64" r="6" fill="#6DB33F"/>
         </svg>
       </li>
-
       <!-- React -->
       <li aria-label="React">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -138,7 +137,6 @@
           <circle cx="64" cy="64" r="8" fill="#61DAFB"/>
         </svg>
       </li>
-
       <!-- Next.js -->
       <li aria-label="Next.js">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -146,7 +144,6 @@
           <rect x="86" y="36" width="10" height="10" rx="2" fill="#000000"/>
         </svg>
       </li>
-
       <!-- PostgreSQL -->
       <li aria-label="PostgreSQL">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -154,7 +151,6 @@
           <path d="M64 88c10 0 14-8 14-16 0-6-4-10-8-10-6 0-10 6-10 12 0 4 0 14 4 14z" fill="#336791"/>
         </svg>
       </li>
-
       <!-- MongoDB -->
       <li aria-label="MongoDB">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -162,7 +158,6 @@
           <rect x="62" y="58" width="4" height="30" rx="2" fill="#47A248"/>
         </svg>
       </li>
-
       <!-- Docker -->
       <li aria-label="Docker">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -177,7 +172,6 @@
           <path d="M24 74h74c0 14-14 24-30 24-16 0-24-6-28-12H24z" fill="#2496ED" opacity=".13" stroke="#2496ED" stroke-width="3"/>
         </svg>
       </li>
-
       <!-- Kubernetes -->
       <li aria-label="Kubernetes">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -190,7 +184,6 @@
           <circle cx="64" cy="64" r="6" fill="#326CE5"/>
         </svg>
       </li>
-
       <!-- AWS -->
       <li aria-label="AWS">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -198,14 +191,12 @@
           <path d="M24 88c24 10 56 10 80 0" fill="none" stroke="#FF9900" stroke-width="6" stroke-linecap="round"/>
         </svg>
       </li>
-
       <!-- Terraform -->
       <li aria-label="Terraform">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
           <path d="M20 60l28 16V44L20 28zM52 44l28 16V28L52 12zM84 60l24 14V42L84 28z" fill="#844FBA"/>
         </svg>
       </li>
-
       <!-- Kafka -->
       <li aria-label="Kafka">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -218,7 +209,6 @@
           </g>
         </svg>
       </li>
-
       <!-- RabbitMQ -->
       <li aria-label="RabbitMQ">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -228,7 +218,6 @@
           <circle cx="92" cy="64" r="8" fill="#FF6600"/>
         </svg>
       </li>
-
       <!-- Redis -->
       <li aria-label="Redis">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -240,7 +229,6 @@
           <polygon points="56,60 64,50 72,60 64,56" fill="#DC382D"/>
         </svg>
       </li>
-
       <!-- Cypress -->
       <li aria-label="Cypress">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -248,7 +236,6 @@
           <text x="50%" y="58%" text-anchor="middle" font-family="system-ui, Segoe UI, Arial" font-size="44" fill="#171717" font-weight="800">cy</text>
         </svg>
       </li>
-
       <!-- JUnit -->
       <li aria-label="JUnit">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -257,7 +244,6 @@
           <path d="M66 74l10 10 18-20" fill="none" stroke="#27AE60" stroke-width="6" stroke-linecap="round"/>
         </svg>
       </li>
-
       <!-- Apache Camel -->
       <li aria-label="Apache Camel">
         <svg viewBox="0 0 128 128" role="img" aria-hidden="true">
@@ -268,12 +254,32 @@
     </ul>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education" class="section">
+  <!-- EDUCATION (new: dark cards with two different color themes) -->
+  <section id="education" class="section edu">
     <h2>Education</h2>
-    <div class="cards two">
-      <article class="card"><h3>M.S. Computer Science</h3><p>University of North Texas — Expected 2025.</p></article>
-      <article class="card"><h3>B.Tech (Information Tech)</h3><p>Core subjects: DBMS, Networks, OOP, Software Engineering.</p></article>
+
+    <div class="edu-grid">
+      <article class="edu-card ed--one">
+        <header class="edu-head">
+          <h3>M.S. Computer Science</h3>
+          <p class="meta">University of North Texas • 2023 – 2025 (Expected)</p>
+        </header>
+        <ul class="highlights">
+          <li>Focus: Cloud & Data, Distributed Systems, Security.</li>
+          <li>Projects across Java/Spring, React, and cloud-native stacks.</li>
+        </ul>
+      </article>
+
+      <article class="edu-card ed--two">
+        <header class="edu-head">
+          <h3>B.Tech — Information Technology</h3>
+          <p class="meta">Undergraduate • Completed</p>
+        </header>
+        <ul class="highlights">
+          <li>Core subjects: DBMS, Computer Networks, OOP, Software Engineering.</li>
+          <li>Built foundational skills for full-stack and systems design.</li>
+        </ul>
+      </article>
     </div>
   </section>
 

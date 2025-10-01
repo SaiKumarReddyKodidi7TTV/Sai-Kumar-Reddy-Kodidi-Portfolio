@@ -72,11 +72,11 @@ a:hover{text-decoration:underline}
 .section{max-width:1120px;margin:40px auto;padding:0 20px}
 .section h2{color:var(--silent-sea);font-size:28px;margin:0 0 10px}
 
-/* About full width text */
+/* About text */
 #about p, #about li, #about div, #about > *{max-width:none !important}
 #about p{line-height:1.6}
 
-/* Generic cards/chips */
+/* Generic light cards */
 .cards{display:grid;gap:18px}
 .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -144,15 +144,8 @@ a:hover{text-decoration:underline}
   padding-left: 0;
   margin-top: 12px;
 }
-.skill-logos.bare li{
-  background: transparent;
-  border: 0;
-  aspect-ratio: auto;
-  padding: 0;
-  position: relative;
-}
+.skill-logos.bare li{ background: transparent; border: 0; aspect-ratio: auto; padding: 0; position: relative; }
 .skill-logos.bare li::after{
-  /* slim slanted accent on hover → “cutting-edge” vibe without a tile */
   content:""; position:absolute; inset:-8px -10px auto auto; width:22px; height:22px;
   background: linear-gradient(135deg, rgba(14,58,91,.0), rgba(14,58,91,.18));
   transform: skewX(-18deg); border-radius:3px; opacity:0; pointer-events:none;
@@ -170,6 +163,48 @@ a:hover{text-decoration:underline}
 }
 .skill-logos.bare li:hover::after{ opacity:1; transform: skewX(-18deg) translateY(-4px); }
 
+/* ===== EDUCATION (dark cards like Experience, 2 distinct color themes) ===== */
+.edu-grid{ display:grid; gap:22px; grid-template-columns:1fr; }
+@media (min-width:1024px){ .edu-grid{ grid-template-columns:1fr 1fr; } }
+
+.edu-card{
+  --bg1:#0C5C62; /* teal theme default */
+  --bg2:#083C43;
+  background:
+    radial-gradient(1100px 480px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+  color:#EAF7F6;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:20px 18px 16px;
+  position:relative; overflow:hidden;
+  box-shadow:0 14px 30px rgba(0,0,0,.16);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.edu-card:hover{ transform:translateY(-3px); box-shadow:0 18px 42px rgba(0,0,0,.26); }
+.edu-card::after{
+  content:""; position:absolute; right:-42%; top:-26%;
+  width:72%; height:72%; transform:skewX(-24deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+  pointer-events:none;
+}
+.ed--one{ --bg1:#0C5C62; --bg2:#083C43; }       /* teal/sea */
+.ed--two{ --bg1:#4B2E83; --bg2:#2F215A; }       /* indigo/purple */
+
+.edu-head h3{ margin:0; font-size:22px; color:#fff; }
+.edu-head .meta{ margin:6px 0 12px; opacity:.88; font-size:14px; }
+
+.highlights{ margin:0 0 6px 0; padding:0; list-style:none; }
+.highlights li{
+  position:relative; padding-left:22px; margin:8px 0; line-height:1.5;
+}
+.highlights li::before{
+  content:""; position:absolute; left:0; top:10px;
+  width:8px; height:8px; border-radius:50%;
+  background:#7FE7DC; box-shadow:0 0 0 4px rgba(255,255,255,.08);
+}
+
+/* Responsive nav */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr; min-height:92vh;}
   .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform:none;}
