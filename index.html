@@ -88,7 +88,7 @@
     <a href="#education">Education</a>
     <a href="#certs">Certifications</a>
     <a href="#projects">Projects</a>
-    <a href="#contact" class="btn sm">Contact</a>
+    <a href="#contact" >Contact</a>
   </nav>
 </header>
 
@@ -99,7 +99,7 @@
       <!-- Title & subtitle -->
       <div class="hero-copy">
         <h1 class="title">Sai Kumar Reddy Kodidi</h1>
-        <p class="subtitle">Data Migration & Cloud • SAP (Syniti ADM, MM/MDG) • Java/Spring • ML & Security</p>
+        <p class="subtitle"> Full Stack Developer • Java/Spring • AWS</p>
       </div>
 
       <!-- Socials -->
@@ -123,13 +123,24 @@
 
   <!-- ABOUT (now below the fold) -->
   <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      Brief intro focused on outcomes and domains: Syniti ADM data migrations (JDE → S/4HANA),
-      SAP MM/MDG, Java microservices, cloud (AWS/Azure), ML experiments, and security labs.
-    </p>
-  </section>
+  <!-- content from about.html will go here -->
+</section>
 
+<script>
+  // wait until DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // adjust path if needed (here about.html sits next to index.html)
+    fetch('about.html')
+      .then(function(res) { return res.text(); })
+      .then(function(html) {
+        // inject the fetched markup into your #about section
+        document.getElementById('about').innerHTML = html;
+      })
+      .catch(function(err) {
+        console.error('Could not load about.html:', err);
+      });
+  });
+</script>
   <!-- EXPERIENCE -->
   <section id="experience" class="section">
     <h2>Experience</h2>
