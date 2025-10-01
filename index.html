@@ -5,70 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sai Kumar Reddy Kodidi</title>
 
-  <!-- main stylesheet (cache-busted) -->
-  <link href="public/styling.css?v=2" rel="stylesheet" />
+  <!-- main stylesheet -->
+  <link href="public/styling.css?v=3" rel="stylesheet" />
 
-  <!-- overrides for your requested tweaks -->
+  <!-- strict wedge + precise positioning overrides -->
   <style>
-    /* ===== LAYOUT & WEDGE (keeps the dark right side) ===== */
-    .site-header,.section,.hero{max-width:1120px;margin:0 auto;padding-left:20px;padding-right:20px}
+    :root{
+      --silent-sea:#0E3A5B;
+      --felicity:#CFE8E5;
+      --accent:#2BA6B3;
+    }
+
+    /* Keep content centered */
+    .site-header,.section,.hero{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* HERO: strict slanted partition */
     .hero{
-      position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;
-      min-height:72vh;padding:56px 20px;
+      position:relative;
+      min-height: 86vh;         /* gives us room to place things at % positions */
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items:stretch;
+      overflow:hidden;
+      background: var(--felicity);
+      padding-top: 0;           /* we’ll place content by absolute % */
     }
-    .hero::before{
-      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-      background:
-        linear-gradient(90deg,var(--felicity, #CFE8E5) 0 40%, transparent 40%),
-        linear-gradient(90deg,var(--silent-sea, #0E3A5B) 0 100%);
-      clip-path:polygon(42% 0, 100% 0, 100% 100%, 55% 100%);
+    /* Dark side wedge: solid color, sharp edge, no gradients */
+    .hero::after{
+      content:"";
+      position:absolute; inset:0 auto 0 50%;
+      width:60%;
+      background: var(--silent-sea);
+      transform: skewX(-12deg);
+      transform-origin: left top;
+      z-index:0;
+      pointer-events:none;
+      box-shadow:none;          /* ensures the edge is crisp */
     }
 
-    /* ===== MOVES NAME/DESIGNATION HIGHER ===== */
-    .hero{ padding-top: 28px !important; }     /* was taller; now higher */
-    .title{ margin-top: -6px; }
-    .subtitle{ margin-top: 0; }
+    /* Left column container (anchor for absolute placement) */
+    .hero-left{position:relative; z-index:2;}
+    /* Title+subtitle block placed ~40% from the top */
+    .hero-copy{
+      position:absolute; left:0; right:6%;
+      top:40%;
+      transform: translateY(-40%);
+    }
 
-    /* ===== SOCIAL ICONS: BIGGER & A BIT LOWER ===== */
-    .socials{ position:relative; z-index:3; display:flex; gap:14px; margin-top:18px !important; }
-    .icon{ display:inline-block; width:44px; height:44px; line-height:0; cursor:pointer; }
-    .icon img{ width:100%; height:100%; display:block; object-fit:contain; transition:transform .12s ease; }
-    .icon:hover img{ transform: translateY(-1px); }
-    .icon:focus-visible{ outline:2px solid var(--accent,#2BA6B3); outline-offset:2px; border-radius:6px; }
+    /* Social icons block pinned ~20% from bottom of hero (left side) */
+    .socials{
+      position:absolute; left:0; bottom:20%;
+      display:flex; gap:14px;
+    }
 
-    /* keep text above wedge */
-    .hero-left{ position:relative; z-index:2; }
+    /* Icons (inline SVG) — larger & crisp */
+    .icon{ width:44px; height:44px; display:inline-block; line-height:0; }
+    .icon svg{ width:100%; height:100%; fill:var(--silent-sea); transition:fill .15s, transform .12s; }
+    .icon:hover svg{ fill:var(--accent); transform: translateY(-1px); }
+    .icon:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:6px; }
 
-    /* ===== PHOTO ON DARK SIDE (natural look, no frame) ===== */
-    .hero-right{ display:flex; justify-content:flex-end; align-items:flex-end;
-                 padding-right:clamp(18px,4.5vw,60px); padding-bottom:4px; }
-    .photo-frame{ border:0; background:transparent; box-shadow:none; }
+    /* Buttons under the copy */
+    .cta{ margin-top:14px; display:flex; gap:12px; }
+
+    /* Right column: photo sits naturally on the dark side */
+    .hero-right{position:relative; z-index:2; display:flex; justify-content:flex-end; align-items:center;}
+    .photo-frame{border:0; background:transparent; box-shadow:none; padding-right: clamp(18px, 4.5vw, 60px);}
     .photo-frame img{
-      width:min(420px,92%); height:auto; display:block; border-radius:12px;
-    }
-    /* For JPEGs with white background: blend into dark wedge */
-    .photo-frame.fake-cutout img{
-      mix-blend-mode:multiply;            /* makes white fade into dark */
+      width:min(460px, 92%);
+      height:auto;
+      display:block;
+      border-radius:12px;  /* remove if you want sharp edges */
+      mix-blend-mode: multiply; /* helps white bg blend on dark side for JPEGs */
       filter: contrast(1.06) saturate(1.02);
     }
-    /* If you later use a transparent PNG, switch div class to .cutout */
-    .photo-frame.cutout img{ mix-blend-mode:normal; filter:none; }
 
-    /* ===== MOBILE TUNING ===== */
+    /* Mobile adjustments */
     @media (max-width:980px){
-      .hero{ grid-template-columns:1fr; min-height:unset; padding-top:22px !important; }
-      .hero::before{ clip-path:polygon(0 0, 100% 0, 100% 62%, 0 82%); }
-      .icon{ width:36px; height:36px; }
-      .photo-frame img{ width:min(360px,96%); }
+      .hero{grid-template-columns:1fr; min-height:78vh;}
+      .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform: none;}
+      .hero-right{justify-content:center; align-items:flex-end;}
+      .hero-copy{left:0; right:0; top:34%; transform:translateY(-34%);}
+      .socials{left:0; right:auto; bottom:16%;}
+      .icon{ width:38px; height:38px; }
+      .photo-frame{padding-right:0;}
+      .photo-frame img{ width:min(380px, 92%); }
     }
     @media (max-width:680px){
-      .hero::before{ display:none; } /* simplify on very small screens */
-      .menu-btn{ display:block; background:transparent; border:0; font-size:24px; color:var(--silent-sea,#0E3A5B); }
-      .nav{
-        position:absolute; right:20px; top:60px; background:#fff; border:1px solid #b7d5d1; border-radius:12px;
-        padding:10px 12px; flex-direction:column; gap:6px; display:none;
-      }
-      .nav.open{ display:flex; }
+      .hero{min-height:72vh;}
+      .hero::after{height:50%;}
+      .icon{ width:34px; height:34px; }
     }
   </style>
 </head>
@@ -91,29 +116,35 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <h1 class="title">Sai Kumar Reddy Kodidi</h1>
-      <p class="subtitle">Data Migration & Cloud • SAP (Syniti ADM, MM/MDG) • Java/Spring • ML & Security</p>
+      <!-- Title & subtitle ~40% from top -->
+      <div class="hero-copy">
+        <h1 class="title">Sai Kumar Reddy Kodidi</h1>
+        <p class="subtitle">Data Migration & Cloud • SAP (Syniti ADM, MM/MDG) • Java/Spring • ML & Security</p>
 
-      <!-- Social icons as clickable images -->
-      <div class="socials">
-        <a class="icon" href="https://github.com/SaiKumarReddyKodidi7TTV" target="_blank" rel="noopener" aria-label="GitHub">
-          <img src="./assets/images/Github.png" alt="GitHub" width="44" height="44" />
-        </a>
-        <a class="icon" href="https://www.linkedin.com/in/sai-kumar-reddy-kodidi-8820391b2" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <img src="./assets/images/LinkedIn.png" alt="LinkedIn" width="44" height="44" />
-        </a>
+        <div class="cta">
+          <a class="btn" href="public/Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+          <a class="btn outline" href="public/contactme.html">Contact Me</a>
+        </div>
       </div>
 
-      <div class="cta" style="margin-top:14px; display:flex; gap:12px;">
-        <a class="btn" href="public/Resume.pdf" target="_blank" rel="noopener">View Resume</a>
-        <a class="btn outline" href="public/contactme.html">Contact Me</a>
+      <!-- Socials ~20% from bottom -->
+      <div class="socials">
+        <!-- GitHub -->
+        <a class="icon" href="https://github.com/SaiKumarReddyKodidi7TTV" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A12 12 0 0 0 0 12.7c0 5.4 3.4 9.9 8.1 11.5.6.1.8-.3.8-.6v-2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.3 1.8 1.3 1 .1 1-.7 2.6-1 .1-.8.4-1.4.8-1.8-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.2 1.2a10.8 10.8 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 24 12.7 12 12 0 0 0 12 .5z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a class="icon" href="https://www.linkedin.com/in/sai-kumar-reddy-kodidi-8820391b2" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.86-3.04-1.87 0-2.16 1.46-2.16 2.96v5.66H9.3V9h3.41v1.56h.05c.47-.89 1.62-1.82 3.34-1.82 3.57 0 4.23 2.35 4.23 5.41v6.3zM5.34 7.44A2.07 2.07 0 1 1 5.33 3.3a2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.57V9h3.55v11.45z"/></svg>
+        </a>
       </div>
     </div>
 
+    <!-- Photo on the dark side -->
     <div class="hero-right">
-      <!-- Use 'fake-cutout' for JPEG; swap to 'cutout' with a transparent PNG later -->
-      <div class="photo-frame fake-cutout">
-        <img src="./assets/images/SaiKumar.jpg" alt="Sai Kumar Reddy" width="760" height="950" />
+      <div class="photo-frame">
+        <!-- JPEG with blend; replace with transparent PNG later if you want true cutout -->
+        <img src="./assets/images/SaiKumar.jpg" alt="Sai Kumar Reddy" width="900" height="900" />
       </div>
     </div>
   </section>
