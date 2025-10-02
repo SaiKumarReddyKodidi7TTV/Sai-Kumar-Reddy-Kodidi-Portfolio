@@ -470,7 +470,7 @@
   <div class="contact-grid">
     <!-- Clickable cards -->
     <div class="contact-cards">
-      <!-- Email: mailto + Gmail fallback (handled in JS) -->
+      <!-- Email: mailto + Gmail fallback (JS) -->
       <a class="contact-card c--mail"
          href="mailto:kodidisaikumarreddy7ttv@gmail.com"
          data-gmail="https://mail.google.com/mail/?view=cm&fs=1&to=kodidisaikumarreddy7ttv@gmail.com"
@@ -481,7 +481,7 @@
         <span class="value">kodidisaikumarreddy7ttv@gmail.com</span>
       </a>
 
-      <!-- Phone: opens the dialer -->
+      <!-- Phone -->
       <a class="contact-card c--phone"
          href="tel:+19403731778"
          aria-label="Call +1 940 373-1778">
@@ -492,7 +492,7 @@
       </a>
     </div>
 
-    <!-- Form handled by JS (no action/method printed) -->
+    <!-- Form -->
     <form id="contact-form" class="contact-form">
       <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
 
@@ -560,6 +560,79 @@
     }
   })();
 </script>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    // ====== YOUR EMAILJS CONFIG (replace all three) ======
+    const EMAILJS_PUBLIC_KEY = 'Du8sFg91DFq5o1vaKE';
+    const EMAILJS_SERVICE_ID = 'service_sfqligz';
+    const EMAILJS_TEMPLATE_ID = 'template_6pirrb4';
+
+    // Init EmailJS
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    // Email card: Gmail fallback if no default mail client
+    const mailCard = document.querySelector('.contact-card.c--mail');
+    if (mailCard) {
+      mailCard.addEventListener('click', () => {
+        const gmail = mailCard.getAttribute('data-gmail');
+        setTimeout(() => { window.open(gmail, '_blank', 'noopener'); }, 350);
+      });
+    }
+
+    // Form submit via EmailJS (with mailto fallback if fails)
+    const form   = document.getElementById('contact-form');
+    const status = document.getElementById('cf-status');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'status';
+      status.textContent = 'Sending…';
+
+      // honeypot
+      if (form.querySelector('input[name="_gotcha"]').value) {
+        status.textContent = 'Thanks!';
+        status.classList.add('success');
+        return; // bot
+      }
+
+      const from_name  = document.getElementById('cf-name').value.trim();
+      const from_email = document.getElementById('cf-email').value.trim();
+      const from_phone = document.getElementById('cf-phone').value.trim();
+      const message    = document.getElementById('cf-message').value.trim();
+
+      const templateParams = {
+        from_name,
+        from_email,
+        from_phone,
+        message,
+        site_page: window.location.href
+      };
+
+      try {
+        // Send via EmailJS
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+        form.reset();
+        status.textContent = 'Thanks! Your message has been sent.';
+        status.classList.add('success');
+      } catch (err) {
+        // Final fallback: open a mail draft for the user to send manually
+        const subject = encodeURIComponent(`Portfolio contact from ${from_name || 'Anonymous'}`);
+        const body = encodeURIComponent(
+          `Name: ${from_name}\nEmail: ${from_email}\nPhone: ${from_phone}\n\nMessage:\n${message}`
+        );
+        window.location.href = `mailto:kodidisaikumarreddy7ttv@gmail.com?subject=${subject}&body=${body}`;
+        status.textContent = 'Opening your mail app…';
+        status.classList.add('success');
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
 
