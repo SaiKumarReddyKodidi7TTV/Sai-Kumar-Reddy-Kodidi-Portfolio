@@ -197,33 +197,32 @@ a:hover{text-decoration:underline}
   background:#7FE7DC; box-shadow:0 0 0 4px rgba(255,255,255,.08);
 }
 
-/* ===== CERTIFICATIONS (dark twin style, 3 brand themes, CTA) ===== */
-.cert-grid{ display:grid; gap:22px; grid-template-columns:1fr; }
-@media (min-width:1024px){ .cert-grid{ grid-template-columns:1fr 1fr 1fr; } }
+/* CERTIFICATIONS (boxed dark cards, brand colors, CTA) */
+.cert-grid{display:grid;gap:22px;grid-template-columns:1fr}
+@media (min-width:1024px){.cert-grid{grid-template-columns:1fr 1fr 1fr}}
 
 .cert-card{
-  --bg1:#232F3E; /* default deep brandy blue */
+  --bg1:#232F3E;           /* default deep blue (AWS) */
   --bg2:#0F1A24;
-  --corner:#FF9900; /* default corner accent */
+  --corner:#FF9900;        /* corner accent */
   background:
     radial-gradient(1100px 480px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
     linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
   color:#EAF7F6;
   border:1px solid rgba(255,255,255,.14);
-  border-radius:18px; padding:20px 18px 16px;
+  border-radius:18px;
+  padding:20px 18px 16px;
   position:relative; overflow:hidden;
   box-shadow:0 14px 30px rgba(0,0,0,.16);
-  transition:transform .18s ease, box-shadow .18s ease;
+  transition:transform .18s, box-shadow .18s;
 }
-.cert-card:hover{ transform:translateY(-3px); box-shadow:0 18px 42px rgba(0,0,0,.26); }
+.cert-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,.26)}
 .cert-card::after{
   content:""; position:absolute; right:-40%; top:-26%;
   width:72%; height:72%; transform:skewX(-24deg);
   background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
   pointer-events:none;
 }
-
-/* Top-right brand accent */
 .cert-card .corner{
   position:absolute; top:-8px; right:-8px; width:108px; height:108px;
   transform:skewX(-24deg);
@@ -231,15 +230,15 @@ a:hover{text-decoration:underline}
   opacity:.18; pointer-events:none;
 }
 
-/* brand palettes per card */
-.c--one{ --bg1:#232F3E; --bg2:#0F1A24; --corner:#FF9900; }  /* AWS blue + orange */
+/* three distinct brand palettes */
+.c--one{ --bg1:#232F3E; --bg2:#0F1A24; --corner:#FF9900; }  /* AWS */
 .c--two{ --bg1:#2F74C0; --bg2:#1B3B6F; --corner:#58A6FF; }  /* SQL blues */
 .c--three{ --bg1:#5C1BA6; --bg2:#2F0E58; --corner:#A435F0; }/* Udemy purple */
 
-.cert-head h3{ margin:0; font-size:20px; color:#fff; }
-.cert-head .meta{ margin:6px 0 12px; opacity:.88; font-size:14px; }
+.cert-head h3{margin:0;font-size:20px;color:#fff}
+.cert-head .meta{margin:6px 0 12px;opacity:.88;font-size:14px}
 
-.cert-card .highlights{ margin:0 10px 12px 0; padding:0; list-style:none; }
+.cert-card .highlights{margin:0 10px 12px 0;padding:0;list-style:none}
 .cert-card .highlights li{
   position:relative; padding-left:20px; margin:8px 0; line-height:1.5;
 }
@@ -250,22 +249,18 @@ a:hover{text-decoration:underline}
 }
 
 /* CTA button */
-.cta-row{ margin-top:4px; }
+.cta-row{margin-top:4px}
 .cert-cta{
   display:inline-flex; align-items:center; gap:8px;
   padding:8px 12px; border-radius:10px;
   border:1px solid rgba(255,255,255,.28);
   color:#fff; background:transparent; text-decoration:none;
-  transition:background .18s ease, border-color .18s ease, transform .18s ease;
+  transition:background .18s, border-color .18s, transform .18s;
   line-height:1;
 }
-.cert-cta:hover{
-  background:rgba(255,255,255,.07);
-  border-color:rgba(255,255,255,.46);
-  transform:translateY(-2px);
-}
+.cert-cta:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.46);transform:translateY(-2px)}
 
-/* 🔒 Fix: lock down the SVG icon size in Certifications */
+/* lock the little arrow so it never scales up */
 .certs .cert-cta svg{
   width:16px !important;
   height:16px !important;
@@ -274,23 +269,4 @@ a:hover{text-decoration:underline}
   display:inline-block;
   vertical-align:-2px;
   line-height:0;
-}
-
-/* Responsive nav + hero adjustments */
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr; min-height:92vh;}
-  .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform:none;}
-  .hero-copy{left:0; right:0; top:36%; transform:translateY(-36%);}
-  .socials{bottom:16%;}
-  .icon{width:38px; height:38px;}
-  .photo-frame{padding-right:0;}
-  .photo-frame img{width:min(380px,96%); clip-path:none;}
-}
-@media (max-width:680px){
-  .menu-btn{display:block}
-  .nav{
-    position:absolute; right:20px; top:60px; background:#fff;border:1px solid #b7d5d1;border-radius:12px;
-    padding:10px 12px;flex-direction:column;gap:6px;display:none
-  }
-  .nav.open{display:flex}
 }
