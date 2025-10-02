@@ -222,3 +222,15 @@ a:hover{text-decoration:underline}
   }
   .nav.open{display:flex}
 }
+
+/* --- Certifications: lock down SVG sizing to prevent the giant arrow --- */
+.certs .cert-card svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  max-width: none;     /* avoid any global svg { max-width:100% } rules */
+  display: inline-block;
+  vertical-align: -2px; /* nice alignment with text */
+}
+
+/* keep the skill logos unaffected (they’re under .skills, not .certs) */
