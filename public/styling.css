@@ -1,10 +1,10 @@
 :root{
-  --silent-sea:#0E3A5B;    /* dark primary */
-  --felicity:#CFE8E5;      /* light base */
+  --silent-sea:#0E3A5B;     /* dark primary */
+  --felicity:#CFE8E5;       /* light base */
   --paper:#ffffff;
   --ink:#0b2230;
   --accent:#2BA6B3;
-  --cut:16%;               /* photo slant */
+  --cut:16%;                /* hero photo slant */
 }
 
 *{box-sizing:border-box}
@@ -46,7 +46,7 @@ a:hover{text-decoration:underline}
   content:""; position:absolute; inset:0 auto 0 50%;
   width:60%; background:var(--silent-sea);
   transform:skewX(-12deg); transform-origin:left top;
-  z-index:0; pointer-events:none; box-shadow:none;
+  z-index:0; pointer-events:none;
 }
 .hero-left{position:relative; z-index:2;}
 .hero-copy{position:absolute; left:0; right:6%; top:40%; transform:translateY(-40%);}
@@ -76,7 +76,7 @@ a:hover{text-decoration:underline}
 #about p, #about li, #about div, #about > *{max-width:none !important}
 #about p{line-height:1.6}
 
-/* Generic light cards */
+/* Light cards (generic) */
 .cards{display:grid;gap:18px}
 .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -84,7 +84,7 @@ a:hover{text-decoration:underline}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(14,58,91,.12);border-color:#a9d3cd}
 .card h3{margin:0 0 8px;color:var(--silent-sea)}
 
-/* ===== EXPERIENCE (dark, boxed, two variants) ===== */
+/* ===== EXPERIENCE (dark, two variants) ===== */
 .xp { margin-top: 32px; }
 .xp-grid { display:grid; gap:22px; grid-template-columns:1fr; }
 @media (min-width: 1024px){ .xp-grid { grid-template-columns: 1fr 1fr; } }
@@ -136,13 +136,8 @@ a:hover{text-decoration:underline}
 /* ===== SKILLS (brand logos, no tiles) ===== */
 .skills .skill-logos{
   --icon: 56px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, max-content));
-  gap: 22px 26px;
-  align-items: center;
-  list-style: none;
-  padding-left: 0;
-  margin-top: 12px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, max-content));
+  gap: 22px 26px; align-items: center; list-style: none; padding-left: 0; margin-top: 12px;
 }
 .skill-logos.bare li{ background: transparent; border: 0; aspect-ratio: auto; padding: 0; position: relative; }
 .skill-logos.bare li::after{
@@ -163,20 +158,18 @@ a:hover{text-decoration:underline}
 }
 .skill-logos.bare li:hover::after{ opacity:1; transform: skewX(-18deg) translateY(-4px); }
 
-/* ===== EDUCATION (dark cards like Experience, 2 distinct color themes) ===== */
+/* ===== EDUCATION (dark, two colors) ===== */
 .edu-grid{ display:grid; gap:22px; grid-template-columns:1fr; }
 @media (min-width:1024px){ .edu-grid{ grid-template-columns:1fr 1fr; } }
 
 .edu-card{
-  --bg1:#0C5C62; /* teal theme default */
-  --bg2:#083C43;
+  --bg1:#0C5C62; --bg2:#083C43;
   background:
     radial-gradient(1100px 480px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
     linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
   color:#EAF7F6;
   border:1px solid rgba(255,255,255,.14);
-  border-radius:18px;
-  padding:20px 18px 16px;
+  border-radius:18px; padding:20px 18px 16px;
   position:relative; overflow:hidden;
   box-shadow:0 14px 30px rgba(0,0,0,.16);
   transition:transform .18s ease, box-shadow .18s ease;
@@ -188,8 +181,8 @@ a:hover{text-decoration:underline}
   background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
   pointer-events:none;
 }
-.ed--one{ --bg1:#0C5C62; --bg2:#083C43; }       /* teal/sea */
-.ed--two{ --bg1:#4B2E83; --bg2:#2F215A; }       /* indigo/purple */
+.ed--one{ --bg1:#0C5C62; --bg2:#083C43; }     /* teal/sea */
+.ed--two{ --bg1:#4B2E83; --bg2:#2F215A; }     /* indigo/purple */
 
 .edu-head h3{ margin:0; font-size:22px; color:#fff; }
 .edu-head .meta{ margin:6px 0 12px; opacity:.88; font-size:14px; }
@@ -204,7 +197,86 @@ a:hover{text-decoration:underline}
   background:#7FE7DC; box-shadow:0 0 0 4px rgba(255,255,255,.08);
 }
 
-/* Responsive nav */
+/* ===== CERTIFICATIONS (dark twin style, 3 brand themes, CTA) ===== */
+.cert-grid{ display:grid; gap:22px; grid-template-columns:1fr; }
+@media (min-width:1024px){ .cert-grid{ grid-template-columns:1fr 1fr 1fr; } }
+
+.cert-card{
+  --bg1:#232F3E; /* default deep brandy blue */
+  --bg2:#0F1A24;
+  --corner:#FF9900; /* default corner accent */
+  background:
+    radial-gradient(1100px 480px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+  color:#EAF7F6;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px; padding:20px 18px 16px;
+  position:relative; overflow:hidden;
+  box-shadow:0 14px 30px rgba(0,0,0,.16);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.cert-card:hover{ transform:translateY(-3px); box-shadow:0 18px 42px rgba(0,0,0,.26); }
+.cert-card::after{
+  content:""; position:absolute; right:-40%; top:-26%;
+  width:72%; height:72%; transform:skewX(-24deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+  pointer-events:none;
+}
+
+/* Top-right brand accent */
+.cert-card .corner{
+  position:absolute; top:-8px; right:-8px; width:108px; height:108px;
+  transform:skewX(-24deg);
+  background:linear-gradient(135deg, transparent 46%, var(--corner) 46%);
+  opacity:.18; pointer-events:none;
+}
+
+/* brand palettes per card */
+.c--one{ --bg1:#232F3E; --bg2:#0F1A24; --corner:#FF9900; }  /* AWS blue + orange */
+.c--two{ --bg1:#2F74C0; --bg2:#1B3B6F; --corner:#58A6FF; }  /* SQL blues */
+.c--three{ --bg1:#5C1BA6; --bg2:#2F0E58; --corner:#A435F0; }/* Udemy purple */
+
+.cert-head h3{ margin:0; font-size:20px; color:#fff; }
+.cert-head .meta{ margin:6px 0 12px; opacity:.88; font-size:14px; }
+
+.cert-card .highlights{ margin:0 10px 12px 0; padding:0; list-style:none; }
+.cert-card .highlights li{
+  position:relative; padding-left:20px; margin:8px 0; line-height:1.5;
+}
+.cert-card .highlights li::before{
+  content:""; position:absolute; left:0; top:10px;
+  width:7px; height:7px; border-radius:50%;
+  background:#8FE3FF; box-shadow:0 0 0 4px rgba(255,255,255,.08);
+}
+
+/* CTA button */
+.cta-row{ margin-top:4px; }
+.cert-cta{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:10px;
+  border:1px solid rgba(255,255,255,.28);
+  color:#fff; background:transparent; text-decoration:none;
+  transition:background .18s ease, border-color .18s ease, transform .18s ease;
+  line-height:1;
+}
+.cert-cta:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.46);
+  transform:translateY(-2px);
+}
+
+/* 🔒 Fix: lock down the SVG icon size in Certifications */
+.certs .cert-cta svg{
+  width:16px !important;
+  height:16px !important;
+  flex:0 0 16px;
+  max-width:none !important;
+  display:inline-block;
+  vertical-align:-2px;
+  line-height:0;
+}
+
+/* Responsive nav + hero adjustments */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr; min-height:92vh;}
   .hero::after{inset:auto 0 0 0; width:100%; height:58%; transform:none;}
@@ -222,15 +294,3 @@ a:hover{text-decoration:underline}
   }
   .nav.open{display:flex}
 }
-
-/* --- Certifications: lock down SVG sizing to prevent the giant arrow --- */
-.certs .cert-card svg {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 16px;
-  max-width: none;     /* avoid any global svg { max-width:100% } rules */
-  display: inline-block;
-  vertical-align: -2px; /* nice alignment with text */
-}
-
-/* keep the skill logos unaffected (they’re under .skills, not .certs) */
