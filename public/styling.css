@@ -270,3 +270,72 @@ a:hover{text-decoration:underline}
   vertical-align:-2px;
   line-height:0;
 }
+/* ===== PROJECTS (boxed dark cards like edu/certs) ===== */
+.projects .proj-grid{display:grid;gap:22px;grid-template-columns:1fr}
+@media (min-width:1024px){.projects .proj-grid{grid-template-columns:1fr 1fr 1fr}}
+
+.proj-card{
+  --bg1:#0F2F5A;  /* default deep blue */
+  --bg2:#0A1E3B;
+  --corner:#2FB6FF;
+  background:
+    radial-gradient(1100px 480px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+  color:#EAF7F6;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:20px 18px 16px;
+  position:relative; overflow:hidden;
+  box-shadow:0 14px 30px rgba(0,0,0,.16);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.proj-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,.26)}
+.proj-card::after{
+  content:""; position:absolute; right:-40%; top:-26%;
+  width:72%; height:72%; transform:skewX(-24deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+  pointer-events:none;
+}
+.proj-card .corner{
+  position:absolute; top:-8px; right:-8px; width:108px; height:108px;
+  transform:skewX(-24deg);
+  background:linear-gradient(135deg, transparent 46%, var(--corner) 46%);
+  opacity:.18; pointer-events:none;
+}
+
+/* three colorways */
+.p--one{ --bg1:#0C65C0; --bg2:#093B73; --corner:#25B4FF; }  /* Azure WAF */
+.p--two{ --bg1:#1B2A4A; --bg2:#0E1630; --corner:#7A7CFF; }  /* LeNet/CNN */
+.p--three{ --bg1:#0F4D32; --bg2:#062D1F; --corner:#59C9A5; }/* HealthHub */
+
+.proj-head h3{margin:0;font-size:20px;color:#fff}
+.proj-head .meta{margin:6px 0 12px;opacity:.88;font-size:14px}
+
+.projects .highlights{margin:0 10px 12px 0;padding:0;list-style:none}
+.projects .highlights li{
+  position:relative; padding-left:20px; margin:8px 0; line-height:1.5;
+}
+.projects .highlights li::before{
+  content:""; position:absolute; left:0; top:10px;
+  width:7px; height:7px; border-radius:50%;
+  background:#8FE3FF; box-shadow:0 0 0 4px rgba(255,255,255,.08);
+}
+
+/* reuse .badge from experience; space it a bit in projects */
+.projects .badges{margin-top:6px;margin-bottom:10px}
+
+/* project CTAs (small arrow) */
+.projects .actions{display:flex;gap:10px;flex-wrap:wrap}
+.proj-cta{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:10px;
+  border:1px solid rgba(255,255,255,.28);
+  color:#fff; background:transparent; text-decoration:none;
+  transition:background .18s ease, border-color .18s ease, transform .18s ease;
+  line-height:1;
+}
+.proj-cta:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.46);transform:translateY(-2px)}
+.projects .proj-cta svg{
+  width:16px !important; height:16px !important; flex:0 0 16px;
+  max-width:none !important; display:inline-block; vertical-align:-2px; line-height:0;
+}
