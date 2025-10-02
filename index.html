@@ -360,79 +360,106 @@
 </section>
 
   <!-- PROJECTS -->
-  /* CERTIFICATIONS (boxed dark cards, brand colors, CTA) */
-.cert-grid{display:grid;gap:22px;grid-template-columns:1fr}
-@media (min-width:1024px){.cert-grid{grid-template-columns:1fr 1fr 1fr}}
+  <!-- PROJECTS (boxed cards like Education/Certifications) -->
+<section id="projects" class="section projects">
+  <h2>Projects</h2>
 
-.cert-card{
-  --bg1:#232F3E;           /* default deep blue (AWS) */
-  --bg2:#0F1A24;
-  --corner:#FF9900;        /* corner accent */
-  background:
-    radial-gradient(1100px 480px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
-    linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
-  color:#EAF7F6;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:18px;
-  padding:20px 18px 16px;
-  position:relative; overflow:hidden;
-  box-shadow:0 14px 30px rgba(0,0,0,.16);
-  transition:transform .18s, box-shadow .18s;
-}
-.cert-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(0,0,0,.26)}
-.cert-card::after{
-  content:""; position:absolute; right:-40%; top:-26%;
-  width:72%; height:72%; transform:skewX(-24deg);
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
-  pointer-events:none;
-}
-.cert-card .corner{
-  position:absolute; top:-8px; right:-8px; width:108px; height:108px;
-  transform:skewX(-24deg);
-  background:linear-gradient(135deg, transparent 46%, var(--corner) 46%);
-  opacity:.18; pointer-events:none;
-}
+  <div class="proj-grid">
+    <!-- Project 1 -->
+    <article class="proj-card p--one">
+      <span class="corner"></span>
+      <header class="proj-head">
+        <h3>Azure WAF Lab</h3>
+        <p class="meta">Security • App Gateway WAF v2 • Log Analytics</p>
+      </header>
 
-/* three distinct brand palettes */
-.c--one{ --bg1:#232F3E; --bg2:#0F1A24; --corner:#FF9900; }  /* AWS */
-.c--two{ --bg1:#2F74C0; --bg2:#1B3B6F; --corner:#58A6FF; }  /* SQL blues */
-.c--three{ --bg1:#5C1BA6; --bg2:#2F0E58; --corner:#A435F0; }/* Udemy purple */
+      <ul class="highlights">
+        <li>Deployed Azure Application Gateway **WAF v2** and tuned managed rules.</li>
+        <li>Simulated SQLi/XSS with curl/ZAP; traced blocks & false-positives in **Log Analytics**.</li>
+        <li>Built dashboards for request trends, rule hits, and incident triage.</li>
+      </ul>
 
-.cert-head h3{margin:0;font-size:20px;color:#fff}
-.cert-head .meta{margin:6px 0 12px;opacity:.88;font-size:14px}
+      <div class="badges">
+        <span class="badge">Azure</span>
+        <span class="badge">WAF v2</span>
+        <span class="badge">App Gateway</span>
+        <span class="badge">Log Analytics</span>
+        <span class="badge">ZAP</span>
+      </div>
 
-.cert-card .highlights{margin:0 10px 12px 0;padding:0;list-style:none}
-.cert-card .highlights li{
-  position:relative; padding-left:20px; margin:8px 0; line-height:1.5;
-}
-.cert-card .highlights li::before{
-  content:""; position:absolute; left:0; top:10px;
-  width:7px; height:7px; border-radius:50%;
-  background:#8FE3FF; box-shadow:0 0 0 4px rgba(255,255,255,.08);
-}
+      <div class="actions">
+        <!-- TODO: update links if you have public docs -->
+        <a class="proj-cta" href="#" target="_blank" rel="noopener">Case study
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17l7.9-7.9V15h2V5h-10v2h5.9L5 15.9 7 17z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </article>
 
-/* CTA button */
-.cta-row{margin-top:4px}
-.cert-cta{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border-radius:10px;
-  border:1px solid rgba(255,255,255,.28);
-  color:#fff; background:transparent; text-decoration:none;
-  transition:background .18s, border-color .18s, transform .18s;
-  line-height:1;
-}
-.cert-cta:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.46);transform:translateY(-2px)}
+    <!-- Project 2 -->
+    <article class="proj-card p--two">
+      <span class="corner"></span>
+      <header class="proj-head">
+        <h3>LeNet-5 on CIFAR-10</h3>
+        <p class="meta">Deep Learning • PyTorch • Experiment Tracking</p>
+      </header>
 
-/* lock the little arrow so it never scales up */
-.certs .cert-cta svg{
-  width:16px !important;
-  height:16px !important;
-  flex:0 0 16px;
-  max-width:none !important;
-  display:inline-block;
-  vertical-align:-2px;
-  line-height:0;
-}
+      <ul class="highlights">
+        <li>Extended LeNet-5 for **CIFAR-10** with augmentation, **BatchNorm**, schedulers.</li>
+        <li>Reached **~80%+** accuracy; compared optimizers/learning rates.</li>
+        <li>Tracked runs/metrics, exported confusion matrices & misclassifications.</li>
+      </ul>
+
+      <div class="badges">
+        <span class="badge">PyTorch</span>
+        <span class="badge">Python</span>
+        <span class="badge">CNN</span>
+        <span class="badge">W&B</span>
+      </div>
+
+      <div class="actions">
+        <a class="proj-cta" href="#" target="_blank" rel="noopener">Notebook
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17l7.9-7.9V15h2V5h-10v2h5.9L5 15.9 7 17z" fill="currentColor"/></svg>
+        </a>
+        <a class="proj-cta" href="#" target="_blank" rel="noopener">Repo
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17l7.9-7.9V15h2V5h-10v2h5.9L5 15.9 7 17z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="proj-card p--three">
+      <span class="corner"></span>
+      <header class="proj-head">
+        <h3>HealthHub Portal</h3>
+        <p class="meta">Team Lead (9) • Appointments • Prescriptions • CI/CD</p>
+      </header>
+
+      <ul class="highlights">
+        <li>Led feature delivery & reviews; implemented **role-based access** & audit trails.</li>
+        <li>Built appointment & prescription flows, notifications, dashboards.</li>
+        <li>Automated pipeline with tests, container builds, and environment promotion.</li>
+      </ul>
+
+      <div class="badges">
+        <span class="badge">Java</span>
+        <span class="badge">Spring Boot</span>
+        <span class="badge">React</span>
+        <span class="badge">Docker</span>
+        <span class="badge">CI/CD</span>
+      </div>
+
+      <div class="actions">
+        <a class="proj-cta" href="#" target="_blank" rel="noopener">Case study
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17l7.9-7.9V15h2V5h-10v2h5.9L5 15.9 7 17z" fill="currentColor"/></svg>
+        </a>
+        <a class="proj-cta" href="#" target="_blank" rel="noopener">Demo
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17l7.9-7.9V15h2V5h-10v2h5.9L5 15.9 7 17z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
 
 
   <!-- CONTACT -->
