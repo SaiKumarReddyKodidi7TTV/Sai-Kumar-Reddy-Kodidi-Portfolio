@@ -463,13 +463,14 @@
 
 
 <!-- CONTACT -->
+<!-- CONTACT -->
 <section id="contact" class="section contact">
   <h2>Contact</h2>
 
   <div class="contact-grid">
     <!-- Clickable cards -->
     <div class="contact-cards">
-      <!-- Email (opens the user's mail app) -->
+      <!-- Email (opens mail app) -->
       <a class="contact-card c--mail"
          href="mailto:kodidisaikumarreddy7ttv@gmail.com"
          aria-label="Send an email to kodidisaikumarreddy7ttv@gmail.com">
@@ -479,7 +480,7 @@
         <span class="value">kodidisaikumarreddy7ttv@gmail.com</span>
       </a>
 
-      <!-- Phone (opens the dialer) -->
+      <!-- Phone (opens dialer) -->
       <a class="contact-card c--phone"
          href="tel:+19403731778"
          aria-label="Call +1 940 373-1778">
@@ -490,11 +491,8 @@
       </a>
     </div>
 
-    <!-- Contact form (no comments inside the tag; no stray text) -->
-    <form id="contact-form"
-          class="contact-form"
-          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
-          method="POST" novalidate>
+    <!-- Contact form (JS handles submit; no method/novalidate/action printed) -->
+    <form id="contact-form" class="contact-form">
       <!-- spam honeypot (keep empty) -->
       <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
 
@@ -566,7 +564,21 @@
 
 
 <script>
-  (function(){
+  (function () {
+    // 1) Set this to your Formspree endpoint to receive emails automatically.
+    // Example: 'https://formspree.io/f/abcdwxyz'
+    const FORMSPREE_ENDPOINT = ''; // ← leave blank to use mailto fallback
+
+    // 2) Your inbox (used by mailto fallback)
+    const CONTACT_EMAIL = 'kodidisaikumarreddy7ttv@gmail.com';
+
+    // Make email & phone cards obviously clickable on all devices
+    document.querySelectorAll('.contact-card').forEach(a => {
+      a.addEventListener('click', e => {
+        // let anchor work normally (no preventDefault)
+      }, { passive: true });
+    });
+
     const form = document.getElementById('contact-form');
     if (!form) return;
     const status = document.getElementById('cf-status');
@@ -576,27 +588,45 @@
       status.className = 'status';
       status.textContent = 'Sending…';
 
-      try {
-        const formData = new FormData(form);
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
+      // Basic fields
+      const name = form.querySelector('#cf-name').value.trim();
+      const email = form.querySelector('#cf-email').value.trim();
+      const phone = form.querySelector('#cf-phone').value.trim();
+      const message = form.querySelector('#cf-message').value.trim();
 
-        if (res.ok) {
-          form.reset();
-          status.textContent = 'Thanks! I received your message.';
-          status.classList.add('success');
-        } else {
+      // If Formspree endpoint is configured, use it
+      if (FORMSPREE_ENDPOINT) {
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.reset();
+            status.textContent = 'Thanks! I received your message.';
+            status.classList.add('success');
+            return;
+          }
           const data = await res.json().catch(() => ({}));
           status.textContent = data.errors?.[0]?.message || 'Oops — something went wrong. Try again?';
           status.classList.add('error');
+        } catch (err) {
+          status.textContent = 'Network error. Please try again.';
+          status.classList.add('error');
         }
-      } catch (err) {
-        status.textContent = 'Network error. Please try again.';
-        status.classList.add('error');
+        return;
       }
+
+      // Otherwise: open a mail draft with the form content (user clicks Send)
+      const subject = encodeURIComponent(`Portfolio contact from ${name || 'Anonymous'}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+      );
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      status.textContent = 'Opening your mail app…';
+      status.classList.add('success');
     });
   })();
 </script>

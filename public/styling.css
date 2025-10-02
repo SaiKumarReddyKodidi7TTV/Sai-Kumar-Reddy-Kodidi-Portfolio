@@ -342,47 +342,37 @@ a:hover{text-decoration:underline}
 
 
 /* ===== CONTACT ===== */
-/* ===== CONTACT (polish) ===== */
+/* CONTACT polish */
 .contact-grid{display:grid;gap:22px;grid-template-columns:1fr}
 @media (min-width:1024px){.contact-grid{grid-template-columns:1fr 1.1fr}}
 
 .contact-cards{display:grid;gap:14px}
 .contact-card{
-  --bg1:#0E3A5B; --bg2:#0A2D48; --corner:#2BA6B3;
-  display:flex; align-items:center; gap:12px;
+  --bg1:#0E3A5B; --bg2:#0A2D48;
+  display:flex;align-items:center;gap:12px;cursor:pointer;
   background:
     radial-gradient(900px 380px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
     linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
-  color:#EAF7F6; border:1px solid rgba(255,255,255,.14);
-  border-radius:16px; padding:14px; text-decoration:none;
-  box-shadow:0 10px 24px rgba(0,0,0,.16); position:relative; overflow:hidden;
-  transition:transform .18s ease, box-shadow .18s ease;
+  color:#EAF7F6;border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;padding:14px;text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);transition:transform .18s, box-shadow .18s
 }
 .contact-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,.22)}
 .contact-card .icon{width:46px;height:46px;color:#9FE3FF;display:grid;place-items:center}
 .contact-card .icon svg{width:28px;height:28px}
-.contact-card .value{
-  color:#fff; font-weight:700; font-size:18px; letter-spacing:.2px;
-  overflow-wrap:anywhere;  /* ensure long email wraps nicely */
-}
+.contact-card .value{color:#fff;font-weight:700;font-size:18px;letter-spacing:.2px;overflow-wrap:anywhere}
+.c--mail{--bg1:#0C5C62;--bg2:#083C43}
+.c--phone{--bg1:#4B2E83;--bg2:#2F215A}
 
-/* flavor colors */
-.c--mail{ --bg1:#0C5C62; --bg2:#083C43; --corner:#7FE7DC; }
-.c--phone{ --bg1:#4B2E83; --bg2:#2F215A; --corner:#A78BFA; }
-
-/* form */
 .contact-form{background:#fff;border:1px solid #cfe0dd;border-radius:16px;padding:16px;box-shadow:0 10px 24px rgba(14,58,91,.10)}
 .contact-form .row{display:grid;gap:14px;grid-template-columns:1fr}
 @media (min-width:720px){.contact-form .row{grid-template-columns:1fr 1fr}}
-
 .field{display:flex;flex-direction:column;gap:6px}
 .field label{font-size:14px;color:#0e3a5b;font-weight:600}
 .field input,.field textarea{font:inherit;padding:12px;border-radius:10px;border:1px solid #cfe0dd;background:#fff;color:#0b2230}
 .field input:focus,.field textarea:focus{outline:2px solid #2BA6B3;outline-offset:1px;border-color:#2BA6B3}
-
 .actions{display:flex;align-items:center;gap:12px;margin-top:8px}
 .status{font-size:14px}
 .status.success{color:#0a7e55}
 .status.error{color:#b62828}
-
-.hp{display:none !important}
+.hp{display:none!important}
