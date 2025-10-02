@@ -339,3 +339,57 @@ a:hover{text-decoration:underline}
   width:16px !important; height:16px !important; flex:0 0 16px;
   max-width:none !important; display:inline-block; vertical-align:-2px; line-height:0;
 }
+
+
+/* ===== CONTACT ===== */
+.contact-grid{
+  display:grid; gap:22px; grid-template-columns:1fr;
+}
+@media (min-width:1024px){
+  .contact-grid{ grid-template-columns: 1fr 1.1fr; }
+}
+
+/* quick cards */
+.contact-cards{ display:grid; gap:16px; }
+.contact-card{
+  --bg1:#0E3A5B; --bg2:#0A2D48; --corner:#2BA6B3;
+  display:flex; gap:12px; align-items:center;
+  background:
+    radial-gradient(900px 380px at 120% -10%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+  color:#EAF7F6; border:1px solid rgba(255,255,255,.14);
+  border-radius:16px; padding:14px 14px; text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.16); position:relative; overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.contact-card:hover{ transform:translateY(-3px); box-shadow:0 16px 36px rgba(0,0,0,.22); }
+.contact-card .icon{ width:42px; height:42px; color:#9FE3FF; display:grid; place-items:center; }
+.contact-card .icon svg{ width:26px; height:26px; }
+.contact-card .meta{ display:flex; flex-direction:column; }
+.contact-card .label{ opacity:.82; font-size:12px; }
+.contact-card .value{ color:#fff; font-weight:700; }
+
+/* flavor colors */
+.c--mail{ --bg1:#0C5C62; --bg2:#083C43; --corner:#7FE7DC; }
+.c--phone{ --bg1:#4B2E83; --bg2:#2F215A; --corner:#A78BFA; }
+
+/* form */
+.contact-form{
+  background:#fff; border:1px solid #cfe0dd; border-radius:16px;
+  padding:16px; box-shadow:0 10px 24px rgba(14,58,91,.10);
+}
+.contact-form .row{ display:grid; gap:14px; grid-template-columns:1fr; }
+@media (min-width:720px){ .contact-form .row{ grid-template-columns:1fr 1fr; } }
+
+.field{ display:flex; flex-direction:column; gap:6px; }
+.field label{ font-size:14px; color:#0e3a5b; font-weight:600; }
+.field input, .field textarea{
+  font: inherit; padding:12px 12px; border-radius:10px;
+  border:1px solid #cfe0dd; background:#fff; color:#0b2230;
+}
+.field input:focus, .field textarea:focus{
+  outline:2px solid #2BA6B3; outline-offset:1px; border-color:#2BA6B3;
+}
+.actions{ display:flex; align-items:center; gap:12px; margin-top:8px; }
+.status{ font-size:14px; }
+.hp{ display:none !important; }
